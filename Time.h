@@ -15,10 +15,21 @@ Date Due: 02/12/18
 class Time
 {
 	public:
+		/*default constructor
+	    @pre none
+	    @post initializes member variables to temporary values
+	    @return none*/
+		Time();
+
+		/*destructor
+			@pre none
+			@post none
+			@return none*/
+		~Time();
 		/*
     		@pre type is a valid string
 		@post sets time type to either 12 or 24 based on whether 12HourTime or 24HourTime is presented
-    		@return none */	
+    		@return none */
 		void setTimeType(std::string type);
 		/*
     		@pre hour is a valid int
