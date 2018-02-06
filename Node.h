@@ -1,14 +1,10 @@
-/*
- *
- * File Name: Node.h
- * Used in program by: Niels Hansen
- * KUID: 2878265
- * Email Address: nahansen@ku.edu
- * Assignment: Lab 5
- * Description: Header file for the Node object. This is the object that the LinkedList object stores. They contain a piece of info of a given type and a pointer to the next Node in the list.
- * Last Changed: 4 October 2017
- *
-*/
+/*----------------------------------------------------------------------------------------
+File Name: Node.h
+Authors: Natalie LaLuzerne, Annika Kuhnke, Niels Hansen, Aldin Tollison
+Project Number: 01
+Description: This is the header file for the Node class
+Date Due: 02/12/18
+----------------------------------------------------------------------------------------*/
 
 #ifndef NODE_H
 #define NODE_H
@@ -27,8 +23,8 @@ class Node
  *
  * Returns: N/A
  *
- */	
-		Node(); 
+ */
+		Node();
 
 /*
  * Preconditions: Call to the Node constructor is made with ItemType as a parameter.
@@ -37,7 +33,7 @@ class Node
  *
  * Returns: N/A
  *
- */	
+ */
 		Node(const ItemType& anItem);
 
 /*
@@ -47,7 +43,7 @@ class Node
  *
  * Returns: N/A
  *
- */	
+ */
 		Node(const ItemType& anItem, Node<ItemType>* nextNodePtr);
 
 /*
@@ -57,7 +53,7 @@ class Node
  *
  * Returns: N/A
  *
- */	
+ */
 		void setInfo(const ItemType& inInfo);
 
 /*
@@ -67,7 +63,7 @@ class Node
  *
  * Returns: N/A
  *
- */	
+ */
 		void setNext(Node<ItemType>* nxtPtr);
 
 /*
@@ -77,7 +73,7 @@ class Node
  *
  * Returns: ItemType info
  *
- */	
+ */
 		ItemType getData() const;
 
 /*
@@ -87,7 +83,7 @@ class Node
  *
  * Returns: Node<ItemType>* next
  *
- */	
+ */
 		Node<ItemType>* getNext() const;
 
 	private:
