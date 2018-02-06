@@ -134,7 +134,7 @@ void Time::setTime()
 {
 	if(m_timeType == 12)
 	{
-		if(m_minute > 10)
+		if(m_minute < 10)
 		{
 			m_time = m_hour+":0"+m_minute+m_daytime;
 		}
@@ -145,7 +145,7 @@ void Time::setTime()
 	}
 	else if(m_timeType == 24)
 	{
-		                if(m_minute > 10)
+		if(m_minute < 10)
                 {
                         m_time = m_hour+":0"+m_minute;
                 }
