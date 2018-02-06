@@ -26,7 +26,7 @@ class Time
     		@return none */
 		void setHour(int hour);
 		/*
-    		@pre minute is a valid minute
+    		@pre minute is a valid int
     		@post sets m_minute to minute
     		@return none */
 		void setMinute(int minute);
