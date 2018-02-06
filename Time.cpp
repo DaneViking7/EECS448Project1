@@ -17,15 +17,11 @@ Time::~Time()
 
 }
 
-void Time::setTimeType(std::string type)
+void Time::setTimeType(int type)
 {
-	if(type == "12HourTime")
+	if(type == 12 || type == 24)
 	{
-		m_timeType = 12;
-	}
-	else if(type == "24HourTime")
-	{
-		m_timeType = 24;
+		m_timeType = type;
 	}
 	else
 	{

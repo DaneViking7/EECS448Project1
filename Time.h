@@ -27,10 +27,10 @@ class Time
 			@return none*/
 		~Time();
 		/*
-    		@pre type is a valid string
-		@post sets time type to either 12 or 24 based on whether 12HourTime or 24HourTime is presented
+    		@pre type is a valid int
+		@post sets time type to either 12 or 24
     		@return none */
-		void setTimeType(std::string type);
+		void setTimeType(int type);
 		/*
     		@pre hour is a valid int
     		@post sets m_hour to hour
