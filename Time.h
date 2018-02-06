@@ -32,18 +32,13 @@ class Time
 		void setMinute(int minute);
 		/*
     		@pre hour and minute are valid ints and AmPm is a valid string
-    		@post sets m_12HourTime
+    		@post sets m_time
     		@return none */
-		void set12HourTime(int hour, int minute, std::string AmPm);
-		/*
-    		@pre hour and minute are valid ints
-    		@post sets m_24HourTime
-    		@return none */
-		void set24HourTime(int hour, int minute);
+		void setTime();
 		/*
     		@pre none
     		@postnone
-    		@return m_12HourTime if m_timeType == 12, m_24HourTIme if m_timeType == 24*/
+    		@return m_time*/
 		std::string getTime;
 		/*
     		@pre attendee is a valid string
@@ -57,8 +52,7 @@ class Time
 		std::string getAttendeesList;
 	private:
                 std::list<std::string> m_attendees;
-                std::string m_12HourTime;
-                std::string m_24HourTime;
+                std::string m_time;
                 int m_hour;
                 int m_minute;
                 int m_timeType;
