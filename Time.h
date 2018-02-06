@@ -34,7 +34,7 @@ class Time
                 @pre daytime is a valid string
                 @post sets m_daytime to daytime
                 @return none */
-		void setDayTime(std::string daytime) //didn't know how else to call AM/PM
+		void setDayTime(std::string daytime); //didn't know how else to call AM/PM
 		/*
     		@pre none
     		@post sets m_time
