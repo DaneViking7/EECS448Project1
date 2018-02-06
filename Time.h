@@ -55,6 +55,11 @@ class Time
     		@post none
     		@return the attendee at m_attendees[i] */
 		std::string getAttendee(int i);
+		/*
+                @pre none
+                @post 
+                @return m_attendees.size() */
+		int getAttendeesSize();
 	private:
                 std::vector<std::string> m_attendees;
                 std::string m_time;

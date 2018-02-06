@@ -166,7 +166,12 @@ void Time::addAttendees(std::string attendee)
 	m_attendees.push_back(attendee);
 }
 
-std::string Time:getAttendee(int i) //intended to be in for loop when called looking like: for(int i = 0; i < m_attendees.size(); i++)
+std::string Time:getAttendee(int i)
 {
 	return(m_attendees[i]);
+}
+
+int Time:getAttendeesSize()
+{
+	return (m_attendees.size());
 }
