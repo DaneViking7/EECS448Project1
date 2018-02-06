@@ -7,6 +7,16 @@ Date Due: 02/12/18
 ----------------------------------------------------------------------------------------*/
 #include "Time.h"
 
+Time::Time() : m_time( " " ), m_hour( 0 ), m_minute( 0 ), m_timeType( 0 ), m_daytime( " " )
+{
+
+}
+
+Time::~Time()
+{
+
+}
+
 void Time::setTimeType(std::string type)
 {
 	if(type == "12HourTime")
@@ -166,7 +176,7 @@ void Time::addAttendees(std::string attendee)
 	m_attendees.push_back(attendee);
 }
 
-std::string Time:getAttendee(int i)
+std::string Time::getAttendee(int i)
 {
 	return(m_attendees[i]);
 }

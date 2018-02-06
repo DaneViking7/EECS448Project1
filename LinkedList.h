@@ -1,17 +1,10 @@
-//  Adapted from code by Frank M. Carrano and Tim Henry.+
-//  Copyright (c) 2013 __Pearson Education__. All rights reserved.
-// Modified (JRM) to throw exceptions
-/*
- *
- * File Name: LinkedList.h
- * Adapted by: Niels Hansen
- * KUID: 2878265
- * Email Address: nahansen@ku.edu
- * Assignment: Lab 5
- * Description: Header file for the LinkedList object. This object stores Node objects that are connected by pointing to eachother. It effectively acts as a list of theses Nodes. It can delete all the Nodes in the list, insert and remove Nodes, and set or get the information stored in the Nodes.
- * Last Changed: 4 October 2017
- *
-*/
+/*----------------------------------------------------------------------------------------
+File Name: LinkedList.h
+Authors: Natalie LaLuzerne, Annika Kuhnke, Niels Hansen, Aldin Tollison
+Project Number: 01
+Description: This is the header file for the Linked List class
+Date Due: 02/12/18
+----------------------------------------------------------------------------------------*/
 
 #ifndef _LINKED_LIST
 #define _LINKED_LIST
@@ -33,7 +26,7 @@ class LinkedList : public ListInterface<ItemType>
  *
  * Returns: N/A
  *
- */	
+ */
   	 	LinkedList();
 
 /*
@@ -43,7 +36,7 @@ class LinkedList : public ListInterface<ItemType>
  *
  * Returns: N/A
  *
- */	
+ */
   	 	LinkedList(const LinkedList<ItemType>& aList);
 
 /*
@@ -53,7 +46,7 @@ class LinkedList : public ListInterface<ItemType>
  *
  * Returns: N/A
  *
- */	
+ */
  	    ~LinkedList();
 
 /*
@@ -63,7 +56,7 @@ class LinkedList : public ListInterface<ItemType>
  *
  * Returns: true if the LinkedList item is empty and false if it is not
  *
- */	
+ */
  	    bool isEmpty() const;
 
 /*
@@ -73,7 +66,7 @@ class LinkedList : public ListInterface<ItemType>
  *
  * Returns: int itemCount
  *
- */	
+ */
    		int getLength() const;
 
 /*
@@ -83,7 +76,7 @@ class LinkedList : public ListInterface<ItemType>
  *
  * Returns: N/A
  *
- */	
+ */
    		void insert(int newPosition, const ItemType& newEntry) throw (PrecondViolatedExcep);
 
 /*
@@ -93,7 +86,7 @@ class LinkedList : public ListInterface<ItemType>
  *
  * Returns: N/A
  *
- */	
+ */
    		void remove(int position) throw (PrecondViolatedExcep);
 
 /*
@@ -103,9 +96,9 @@ class LinkedList : public ListInterface<ItemType>
  *
  * Returns: N/A
  *
- */	
+ */
    		void clear();
-   
+
 /*
  * Preconditions: A call to this method is made with the position of the desired Node passed in as parameters.
  *
@@ -113,7 +106,7 @@ class LinkedList : public ListInterface<ItemType>
  *
  * Returns: The info stored in the Node at the given position
  *
- */	
+ */
    		ItemType getEntry(int position) throw(PrecondViolatedExcep);
 
 /*
@@ -123,7 +116,7 @@ class LinkedList : public ListInterface<ItemType>
  *
  * Returns: N/A
  *
- */	
+ */
    		void setEntry(int position, const ItemType& newEntry)
                                throw(PrecondViolatedExcep);
 
@@ -141,7 +134,7 @@ class LinkedList : public ListInterface<ItemType>
 
    		Node<ItemType>* headPtr; // Pointer to first node in the chain;
                             // (contains the first entry in the list)
-   		int itemCount;           // Current count of list items 
+   		int itemCount;           // Current count of list items
 
 /*
  * Preconditions: Position is the number of the desired node; position >= 1 and position <= itemCount
@@ -150,10 +143,9 @@ class LinkedList : public ListInterface<ItemType>
  *
  * Returns: A pointer to the node at the given position.
  *
- */	
+ */
    		Node<ItemType>* getNodeAt(int position) const;
 };
 
 #include "LinkedList.hpp"
-#endif 
-
+#endif

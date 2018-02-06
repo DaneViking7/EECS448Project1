@@ -1,16 +1,10 @@
-//  Adapted from code by Frank M. Carrano and Tim Henry.+
-//  Copyright (c) 2013 __Pearson Education__. All rights reserved.
-/*
- *
- * File Name: LinkedList.hpp
- * Used in program by: Niels Hansen
- * KUID: 2878265
- * Email Address: nahansen@ku.edu
- * Assignment: Lab 5
- * Description: Implementation file for the LinkedList object.
- * Last Changed: 4 October 2017
- *
-*/
+/*----------------------------------------------------------------------------------------
+File Name: LinkedList.hpp
+Authors: Natalie LaLuzerne, Annika Kuhnke, Niels Hansen, Aldin Tollison
+Project Number: 01
+Description: This is the implementation file for the Linked List class
+Date Due: 02/12/18
+----------------------------------------------------------------------------------------*/
 
 template<class ItemType>
 LinkedList<ItemType>::LinkedList() : headPtr(nullptr), itemCount(0)
@@ -58,14 +52,14 @@ bool LinkedList<ItemType>::isEmpty() const
 	{
 		return(false);
 	}
-	
+
 }
 
 template<class ItemType>
 int LinkedList<ItemType>::getLength() const
 {
    return itemCount;
-} 
+}
 
 template<class ItemType>
 void LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry)
@@ -74,23 +68,23 @@ void LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry)
    bool ableToInsert = (newPosition >= 1) && (newPosition <= itemCount + 1);
    if (ableToInsert)
    {
-     
-      Node<ItemType>* newNodePtr = new Node<ItemType>(newEntry); 
-      
+
+      Node<ItemType>* newNodePtr = new Node<ItemType>(newEntry);
+
       // Attach new node to chain
       if (newPosition == 1)
       {
          // Insert new node at beginning of chain
-         newNodePtr->setNext(headPtr); 
+         newNodePtr->setNext(headPtr);
          headPtr = newNodePtr;
       }
       else
       {
          // Find node that will be before new node
          Node<ItemType>* prevPtr = getNodeAt(newPosition - 1);
-         
+
          // Insert new node after node to which prevPtr points
-         newNodePtr->setNext(prevPtr->getNext()); 
+         newNodePtr->setNext(prevPtr->getNext());
          prevPtr->setNext(newNodePtr);
       }  // end if
 
@@ -117,20 +111,20 @@ void LinkedList<ItemType>::remove(int position) throw(PrecondViolatedExcep)
       {
          // Find node that is before the one to delete
          Node<ItemType>* prevPtr = getNodeAt(position - 1);
-         
+
          // Point to node to delete
          curPtr = prevPtr->getNext();
-         
+
          // Disconnect indicated node from chain by connecting the
          // prior node with the one after
          prevPtr->setNext(curPtr->getNext());
       }  // end if
-      
+
       // Return node to system
       curPtr->setNext(nullptr);
       delete curPtr;
       curPtr = nullptr;
-      
+
       itemCount--;  // Decrease count of entries
    }
 	else
@@ -155,9 +149,9 @@ ItemType LinkedList<ItemType>::getEntry(int position) throw(PrecondViolatedExcep
    }
    else
    {
-      string message = "getEntry() called with an empty list or "; 
+      string message = "getEntry() called with an empty list or ";
       message  = message + "invalid position.";
-      throw(PrecondViolatedExcep(message)); 
+      throw(PrecondViolatedExcep(message));
    }  // end if
 }  // end getEntry
 
@@ -166,12 +160,12 @@ Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const
 {
    // Debugging check of precondition
    //assert( (position >= 1) && (position <= itemCount) );
-   
+
    // Count from the beginning of the chain
    Node<ItemType>* curPtr = headPtr;
    for (int skip = 1; skip < position; skip++)
       curPtr = curPtr->getNext();
-      
+
    return curPtr;
 }  // end getNodeAt
 

@@ -1,14 +1,10 @@
-/*
- *
- * File Name: Node.hpp
- * Used in program by: Niels Hansen
- * KUID: 2878265
- * Email Address: nahansen@ku.edu
- * Assignment: Lab 5
- * Description: Implementation file for the Node object.
- * Last Changed: 4 October 2017
- *
-*/
+/*----------------------------------------------------------------------------------------
+File Name: Node.hpp
+Authors: Natalie LaLuzerne, Annika Kuhnke, Niels Hansen, Aldin Tollison
+Project Number: 01
+Description: This is the implementation file for the Node class
+Date Due: 02/12/18
+----------------------------------------------------------------------------------------*/
 
 #include"Node.h"
 #include"string"
