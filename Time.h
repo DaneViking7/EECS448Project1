@@ -44,17 +44,17 @@ class Time
     		@pre none
     		@postnone
     		@return m_time*/
-		std::string getTime;
+		std::string getTime();
 		/*
     		@pre attendee is a valid string
     		@post pushes attendee to the back of m_attendees
     		@return none none */
 		void addAttendees(std::string attendee);
 		/*
-    		@pre none
+    		@pre i is a valid int
     		@post none
-    		@return the list of attendees */
-		std::string getAttendeesList;
+    		@return the attendee at m_attendees[i] */
+		std::string getAttendee(int i);
 	private:
                 std::vector<std::string> m_attendees;
                 std::string m_time;

@@ -156,7 +156,7 @@ void Time::setTime()
 	}
 }
 
-std::string Time::getTime
+std::string Time::getTime()
 {
 	return m_time;
 }
@@ -166,10 +166,7 @@ void Time::addAttendees(std::string attendee)
 	m_attendees.push_back(attendee);
 }
 
-std::string Time:getAttendeesList
+std::string Time:getAttendee(int i) //intended to be in for loop when called looking like: for(int i = 0; i < m_attendees.size(); i++)
 {
-	for(int i = 0; i < m_attendees.size(); i++)
-	{
-		std::cout<<m_attendees[i]<<'\n';
-	}
+	return(m_attendees[i]);
 }
