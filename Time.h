@@ -10,7 +10,7 @@ Date Due: 02/12/18
 
 #include <iostream>
 #include <string>
-#include <list>
+#include <vector>
 
 class Time
 {
@@ -31,7 +31,12 @@ class Time
     		@return none */
 		void setMinute(int minute);
 		/*
-    		@pre hour and minute are valid ints and AmPm is a valid string
+                @pre daytime is a valid string
+                @post sets m_daytime to daytime
+                @return none */
+		void setDayTime(std::string daytime) //didn't know how else to call AM/PM
+		/*
+    		@pre none
     		@post sets m_time
     		@return none */
 		void setTime();
@@ -51,10 +56,11 @@ class Time
     		@return the list of attendees */
 		std::string getAttendeesList;
 	private:
-                std::list<std::string> m_attendees;
+                std::vector<std::string> m_attendees;
                 std::string m_time;
                 int m_hour;
                 int m_minute;
                 int m_timeType;
+		std::string m_daytime;
 };
 #endif
