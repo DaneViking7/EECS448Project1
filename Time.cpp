@@ -177,7 +177,7 @@ std::string Time::getAttendee(int i)
 	return(m_attendees[i]);
 }
 
-int Time:getAttendeesSize()
+int Time::getAttendeesSize()
 {
 	return (m_attendees.size());
 }

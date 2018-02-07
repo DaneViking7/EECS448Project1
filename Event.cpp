@@ -7,23 +7,90 @@ Date Due: 02/12/18
 ----------------------------------------------------------------------------------------*/
 #include "Event.h"
 
-Event::Event()
-{
-  mEventName = " ";
-  mDay = 0;
-  mMonth = 0;
-  mYear = 0;
-  mDate = " ";
-  mTimeList = nullptr;
-}
-
 Event::Event(std::string aEventName, int aDay, int aMonth, int aYear, std::string aAttendeeName, int aHour, int aMinute, int aTimeType, std::string aDayTime)
 {
   mEventName = aEventName;
-  mDay = aDay;
-  mMonth = aMonth;
-  mYear = aYear;
-  mDate = setEventDate(aMonth, aDay, aYear);
+
+  bool validMonth = true;
+  bool validYear = true;
+  bool validDay = true;
+
+  do
+  {
+    try
+    {
+      mMonth = setEventMonth(aMonth);
+      validMonth = true;
+    }
+    catch(PrecondViolatedExcep& pve)
+    {
+      validMonth = false;
+      std::cerr<<std::endl<<pve.what()<<std::endl;
+      std::cerr<<std::endl;
+      std::cerr<<"Please enter a valid month: ";
+      std::cin>>aMonth;
+
+      while(std::cin.fail())
+      {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Please enter a number 1-12. Try again: ";
+        std::cin >> aMonth;
+      }
+    }
+  } while(validMonth == false);
+
+  do
+  {
+    try
+    {
+      mYear = setEventYear(aYear);
+      validYear = true;
+    }
+    catch(PrecondViolatedExcep& pve)
+    {
+      validYear = false;
+      std::cerr<<std::endl<<pve.what()<<std::endl;
+      std::cerr<<std::endl;
+      std::cerr<<"Please enter a valid year: ";
+      std::cin>>aYear;
+
+      while(std::cin.fail())
+      {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Please enter a number greater than or equal to 2018. Try again: ";
+        std::cin >> aYear;
+      }
+    }
+  } while(validYear == false);
+
+  do
+  {
+    try
+    {
+      mDay = setEventDay(aDay);
+      validDay = true;
+    }
+    catch(PrecondViolatedExcep& pve)
+    {
+      validDay = false;
+      std::cerr<<std::endl<<pve.what()<<std::endl;
+      std::cerr<<std::endl;
+      std::cerr<<"Please enter a valid day: ";
+      std::cin>>aDay;
+
+      while(std::cin.fail())
+      {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Please enter a number 1-31 according to the month. Try again: ";
+        std::cin >> aDay;
+      }
+    }
+  } while(validDay == false);
+
+  mDate = setEventDate();
 
   Time tempTimeObj;
   tempTimeObj.setHour(aHour);
@@ -32,7 +99,71 @@ Event::Event(std::string aEventName, int aDay, int aMonth, int aYear, std::strin
   tempTimeObj.setDayTime(aDayTime);
   tempTimeObj.setTime();
 
-  //mTimeList = nullptr;
+  if(mTimeList->isEmpty())
+  {
+    tempTimeObj.addAttendees(aAttendeeName);
+
+    try
+    {
+      mTimeList->insert(1, tempTimeObj);
+    }
+    catch(PrecondViolatedExcep& pve)
+    {
+      std::cerr<<std::endl<<pve.what()<<std::endl;
+    }
+  }
+  else
+  {
+    bool doesTimeExist = false;
+    int timePosition = 0;
+
+    for(int i = 0; i < mTimeList->getLength(); i++)
+    {
+      try
+      {
+        if((mTimeList->getEntry(i)).getTime() == tempTimeObj.getTime())
+        {
+          doesTimeExist = true;
+          timePosition = i;
+          break;
+        }
+        else
+        {
+          doesTimeExist = false;
+        }
+      }
+      catch(PrecondViolatedExcep& pve)
+      {
+        std::cerr<<std::endl<<pve.what()<<std::endl;
+        break;
+      }
+    }
+
+    if(doesTimeExist)
+    {
+      try
+      {
+        (mTimeList->getEntry(timePosition)).addAttendees(aAttendeeName);
+      }
+      catch(PrecondViolatedExcep& pve)
+      {
+        std::cerr<<std::endl<<pve.what()<<std::endl;
+      }
+    }
+    else
+    {
+      tempTimeObj.addAttendees(aAttendeeName);
+
+      try
+      {
+        mTimeList->insert(1, tempTimeObj);
+      }
+      catch(PrecondViolatedExcep& pve)
+      {
+        std::cerr<<std::endl<<pve.what()<<std::endl;
+      }
+    }
+  }
 }
 
 Event::Event(const Event& aEvent)
@@ -47,7 +178,10 @@ Event::Event(const Event& aEvent)
 
 Event::~Event()
 {
-
+  if(!mTimeList->isEmpty())
+  {
+    delete mTimeList;
+  }
 }
 
 Event Event::operator=(const Event& aEvent)
@@ -62,72 +196,134 @@ Event Event::operator=(const Event& aEvent)
   return(*this);
 }
 
-void Event::setEventName(std::string aEventName)
+void Event::changeEventName(std::string aEventName)
 {
 
 }
 
-void Event::setEventDay(int aDay)
+void Event::changeEventDate(int aDay, int aMonth, int aYear)
 {
 
 }
 
-void Event::setEventMonth(int aMonth)
+void Event::changeEventAttendeeName(std::string aOldAttendeeName, std::string aNewAttendeeName)
 {
 
 }
 
-void Event::setEventYear(int aYear)
+void Event::changeEventTime(int aHour, int aMinute, int aTimeType, std::string aDayTime)
 {
 
 }
 
-void Event::setEventAttendeeName(std::string aAttendeeName)
+std::string Event::getEventName()
 {
-
+  return(mEventName);
 }
 
-void Event::setEventHour(int aHour)
+std::string Event::getEventDate()
 {
-
+  return(mDate);
 }
 
-void Event::setEventMinute(int aMinute)
+LinkedList<Time>* Event::getEventTimes()
 {
-
+  return(mTimeList);
 }
 
-void Event::setEventTimeType(int aTimeType)
+bool Event::isLeapYear()
 {
-
+  if((mYear % 400) == 0)
+  {
+    return(true);
+  }
+  else if((mYear % 100) == 0)
+  {
+    return(false);
+  }
+  else if((mYear % 4) == 0)
+  {
+    return(true);
+  }
+  else
+  {
+    return(false);
+  }
 }
 
-void Event::setEventDayTime(int aDayTime)
+int Event::setEventDay(int aDay) throw (PrecondViolatedExcep)
 {
-
+  if((mMonth == 1) || (mMonth == 3) || (mMonth == 5) || (mMonth == 7) || (mMonth == 8) || (mMonth == 10) || (mMonth == 12))
+  {
+    if((aDay < 1) || (aDay > 31))
+    {
+      throw PrecondViolatedExcep("Invalid Day.");
+    }
+    else
+    {
+      return(aDay);
+    }
+  }
+  else if((mMonth == 4) || (mMonth == 6) || (mMonth == 9) || (mMonth == 11))
+  {
+    if((aDay < 1) || (aDay > 30))
+    {
+      throw PrecondViolatedExcep("Invalid Day.");
+    }
+    else
+    {
+      return(aDay);
+    }
+  }
+  else if((mMonth == 2) && isLeapYear())
+  {
+    if((mMonth < 1) || (mMonth > 29))
+    {
+      throw PrecondViolatedExcep("Invalid Day.");
+    }
+    else
+    {
+      return(aDay);
+    }
+  }
+  else
+  {
+    if((mMonth < 1) || (mMonth > 28))
+    {
+      throw PrecondViolatedExcep("Invalid Day.");
+    }
+    else
+    {
+      return(aDay);
+    }
+  }
 }
 
-std::string Event::getEventName(std::string aDate)
+int Event::setEventMonth(int aMonth) throw (PrecondViolatedExcep)
 {
-  return(0); //debug
+  if((aMonth < 1) || (aMonth > 12))
+  {
+    throw PrecondViolatedExcep("Invalid month.");
+  }
+  else
+  {
+    return(aMonth);
+  }
 }
 
-std::string Event::getEventDate(std::string aEventName)
+int Event::setEventYear(int aYear) throw (PrecondViolatedExcep)
 {
-  return(0); //debug
+  if(aYear < 2018)
+  {
+    throw PrecondViolatedExcep("Invalid year.");
+  }
+  else
+  {
+    return(aYear);
+  }
 }
 
-std::string Event::getEventTime(std::string)
-{
-  return(0); //debug
-}
-
-bool Event::isLeapYear(int aYear)
-{
-  return(0); //debug
-}
-
-std::string Event::setEventDate(int aMonth, int aDay, int aYear)
+std::string Event::setEventDate()
 {
   return(0); //debug
 }

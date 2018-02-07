@@ -12,17 +12,14 @@ Date Due: 02/12/18
 #include <vector>
 #include "Time.h"
 #include "LinkedList.h"
+#include <iostream>
+#include <limits>
+#include "PrecondViolatedExcep.h"
+#include <stdexcept>
 
 class Event
 {
 public:
-  /** @brief default constructor
-
-    @pre none
-    @post initializes member variables to temporary values
-    @return none*/
-  Event();
-
   /** @brief constructor which takes an Event name, a day, a month, a year, an attendee name,
     an hour, a minute, a time type (12hr or 24 hr) and a day time (AM/PM)
 
@@ -57,84 +54,51 @@ public:
    @pre none
    @post  The Event's name has been set/changed
    @return  none */
-  void setEventName(std::string aEventName);
+  void changeEventName(std::string aEventName);
 
-  /** @brief sets/changes the day of an Event
-
-   @pre none
-   @post  The Event's day has been set/changed
-   @return  none */
-  void setEventDay(int aDay);
-
-  /** @brief sets/changes the month of an Event
+  /** @brief sets/changes the date of an Event
 
    @pre none
-   @post  The Event's month has been set/changed
+   @post  The Event's date has been set/changed
    @return  none */
-  void setEventMonth(int aMonth);
-
-  /** @brief sets/changes the year of an Event
-
-   @pre none
-   @post  The Event's year has been set/changed
-   @return  none */
-  void setEventYear(int aYear);
+  void changeEventDate(int aDay, int aMonth, int aYear);
 
   /** @brief sets/changes the name of a specific attendee of an Event
 
-   @pre none
-   @post  The attendee's name has been set/changed
+   @pre The attendee's old name must exist
+   @post  An attendee's name has been set/changed
    @return  none */
-  void setEventAttendeeName(std::string aAttendeeName);
+  void changeEventAttendeeName(std::string aOldAttendeeName, std::string aNewAttendeeName);
 
-  /** @brief sets/changes the hour of an Event
-
-   @pre none
-   @post  The Event's hour has been set/changed
-   @return  none */
-  void setEventHour(int aHour);
-
-  /** @brief sets/changes the minute of an Event
+  /** @brief sets/changes the time of an Event
 
    @pre none
-   @post  The Event's minute has been set/changed
+   @post  The Event's time has been set/changed
    @return  none */
-  void setEventMinute(int aMinute);
-
-  /** @brief sets/changes the time of an Event to 12 or 24 hour time
-
-   @pre none
-   @post  The Event's time type has been set/changed to 12 or 24 hour time
-   @return  none */
-  void setEventTimeType(int aTimeType);
-
-  /** @brief sets/changes the time of an Event to AM or PM
-
-   @pre none
-   @post  The Event's time of day has been set/changed AM or PM
-   @return  none */
-  void setEventDayTime(int aDayTime);
+  void changeEventTime(int aHour, int aMinute, int aTimeType, std::string aDayTime);
 
   /** @brief gets the name of the Event
 
-   @pre the exact Date of the Event must be known
+   @pre none
    @post gets the name of the Event
    @return a string representing the name of the Event*/
-  std::string getEventName(std::string aDate);
+  std::string getEventName();
 
   /** @brief gets the date of the Event
 
-   @pre the exact Name of the Event must be known
+   @pre none
    @post gets the date of the Event
    @return a string representing the date of the Event*/
-  std::string getEventDate(std::string aEventName);
+  std::string getEventDate();
 
   /** @brief gets the time of the Event
 
-   @pre the exact Name of the Event must be known
-   @post gets the time of the Event
-   @return a string representing the time of the Event*/
-  std::string getEventTime(std::string aEventName);
+   @pre none
+   @post gets the availability times of the Event, and subsequently all of
+    the people who can attend at each time.
+   @return a pointer to a LinkedList with the availability times of the
+    Event and the people who can attend at each time*/
+  LinkedList<Time>* getEventTimes();
 
 private:
   /** @brief determines whether a given year is a leap year
@@ -142,15 +106,35 @@ private:
    @pre the year must be a valid, 4-digit year
    @post tells whether a given year is a leap year
    @return a bool, true if the year is a leap year, false otherwise*/
-  bool isLeapYear(int aYear);
+  bool isLeapYear();
+
+  /** @brief checks to make sure the day is valid
+
+   @pre the Event month and year must be already set
+   @post  The Event's day has been set/changed
+   @return  none */
+  int setEventDay(int aDay) throw (PrecondViolatedExcep);
+
+  /** @brief checks to make sure the month is valid
+
+   @pre none
+   @post  The Event's month has been set/changed
+   @return  none */
+  int setEventMonth(int aMonth) throw (PrecondViolatedExcep);
+
+  /** @brief checks to make sure the year is valid
+
+   @pre none
+   @post  The Event's year has been set/changed
+   @return  none */
+  int setEventYear(int aYear) throw (PrecondViolatedExcep);
 
   /** @brief sets/changes the date of an Event
 
    @pre none
    @post  The Event's date has been set/changed
    @return  string representing the date in the form MM/DD/YYYY */
-  std::string setEventDate(int aMonth, int aDay, int aYear);
-
+  std::string setEventDate();
 
   std::string mEventName; //!< The name of the Event
   int mDay; //!< The day of the event
