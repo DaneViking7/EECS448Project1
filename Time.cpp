@@ -89,7 +89,7 @@ void Time::setHour(int hour)
 void Time::setMinute(int minute)
 {
 	bool validMinute;
-	if(minute < 0 || minute > 59)
+	if(minute != 0 || minute != 20 || minute != 40)
 	{
 		validMinute = false;
 	}
@@ -100,9 +100,9 @@ void Time::setMinute(int minute)
 	while(!validMinute)
 	{
 		int newMinute = minute;
-		std::cout<<"A minute cannot have a value of "<<newMinute<<"\nPlease select a value between 0-59: ";
+		std::cout<<"A minute cannot have a value of "<<newMinute<<"\nPlease select 0, 20, or 40: ";
 		std::cin>>newMinute;
-		if(newMinute >= 0 && newMinute <= 59)
+		if(newMinute == 0 || newMinute == 20 || newMinute == 40)
 		{
 			validMinute = true;
 		}
