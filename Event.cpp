@@ -198,20 +198,47 @@ Event Event::operator=(const Event& aEvent)
 
 void Event::changeEventName(std::string aEventName)
 {
-
+  mEventName = aEventName;
 }
 
 void Event::changeEventDate(int aDay, int aMonth, int aYear)
 {
+  try
+  {
+    mMonth = setEventMonth(aMonth);
+  }
+  catch(PrecondViolatedExcep& pve)
+  {
+    std::cerr<<std::endl<<pve.what()<<std::endl;
+  }
 
+  try
+  {
+    mYear = setEventYear(aYear);
+  }
+  catch(PrecondViolatedExcep& pve)
+  {
+    std::cerr<<std::endl<<pve.what()<<std::endl;
+  }
+
+  try
+  {
+    mDay = setEventDay(aDay);
+  }
+  catch(PrecondViolatedExcep& pve)
+  {
+    std::cerr<<std::endl<<pve.what()<<std::endl;
+  }
+
+  mDate = setEventDate();
 }
 
-void Event::changeEventAttendeeName(std::string aOldAttendeeName, std::string aNewAttendeeName)
+void Event::addEventTime(int aHour, int aMinute, int aTimeType, std::string aDayTime, std::string aNewAttendeeName)
 {
 
 }
 
-void Event::changeEventTime(int aHour, int aMinute, int aTimeType, std::string aDayTime)
+void Event::addEventAttendee(std::string aTime, std::string aNewAttendeeName)
 {
 
 }
