@@ -19,7 +19,7 @@ Event::Event(std::string aEventName, int aDay, int aMonth, int aYear, std::strin
   {
     try
     {
-      mMonth = setEventMonth(aMonth);
+      setEventMonth(aMonth);
       validMonth = true;
     }
     catch(PrecondViolatedExcep& pve)
@@ -44,7 +44,7 @@ Event::Event(std::string aEventName, int aDay, int aMonth, int aYear, std::strin
   {
     try
     {
-      mYear = setEventYear(aYear);
+      setEventYear(aYear);
       validYear = true;
     }
     catch(PrecondViolatedExcep& pve)
@@ -69,7 +69,7 @@ Event::Event(std::string aEventName, int aDay, int aMonth, int aYear, std::strin
   {
     try
     {
-      mDay = setEventDay(aDay);
+      setEventDay(aDay);
       validDay = true;
     }
     catch(PrecondViolatedExcep& pve)
@@ -90,8 +90,82 @@ Event::Event(std::string aEventName, int aDay, int aMonth, int aYear, std::strin
     }
   } while(validDay == false);
 
-  mDate = setEventDate();
+  setEventDate();
 
+  mTimeList = new LinkedList<Time>();
+
+  addEventTime_Attendee(aHour, aMinute, aTimeType, aDayTime, aAttendeeName);
+}
+
+Event::Event(const Event& aEvent)
+{
+  mEventName = aEvent.mEventName;
+  mDay = aEvent.mDay;
+  mMonth = aEvent.mMonth;
+  mYear = aEvent.mYear;
+  mDate = aEvent.mDate;
+  mTimeList = aEvent.mTimeList;
+}
+
+Event::~Event()
+{
+  if(!mTimeList->isEmpty())
+  {
+    delete mTimeList;
+  }
+}
+
+Event Event::operator=(const Event& aEvent)
+{
+  mEventName = aEvent.mEventName;
+  mDay = aEvent.mDay;
+  mMonth = aEvent.mMonth;
+  mYear = aEvent.mYear;
+  mDate = aEvent.mDate;
+  mTimeList = aEvent.mTimeList;
+
+  return(*this);
+}
+
+void Event::changeEventName(std::string aEventName)
+{
+  mEventName = aEventName;
+}
+
+void Event::changeEventDate(int aDay, int aMonth, int aYear)
+{
+  try
+  {
+    setEventMonth(aMonth);
+  }
+  catch(PrecondViolatedExcep& pve)
+  {
+    std::cerr<<std::endl<<pve.what()<<std::endl;
+  }
+
+  try
+  {
+    setEventYear(aYear);
+  }
+  catch(PrecondViolatedExcep& pve)
+  {
+    std::cerr<<std::endl<<pve.what()<<std::endl;
+  }
+
+  try
+  {
+    setEventDay(aDay);
+  }
+  catch(PrecondViolatedExcep& pve)
+  {
+    std::cerr<<std::endl<<pve.what()<<std::endl;
+  }
+
+  setEventDate();
+}
+
+void Event::addEventTime_Attendee(int aHour, int aMinute, int aTimeType, std::string aDayTime, std::string aAttendeeName)
+{
   Time tempTimeObj;
   tempTimeObj.setHour(aHour);
   tempTimeObj.setMinute(aMinute);
@@ -166,83 +240,6 @@ Event::Event(std::string aEventName, int aDay, int aMonth, int aYear, std::strin
   }
 }
 
-Event::Event(const Event& aEvent)
-{
-  mEventName = aEvent.mEventName;
-  mDay = aEvent.mDay;
-  mMonth = aEvent.mMonth;
-  mYear = aEvent.mYear;
-  mDate = aEvent.mDate;
-  mTimeList = aEvent.mTimeList;
-}
-
-Event::~Event()
-{
-  if(!mTimeList->isEmpty())
-  {
-    delete mTimeList;
-  }
-}
-
-Event Event::operator=(const Event& aEvent)
-{
-  mEventName = aEvent.mEventName;
-  mDay = aEvent.mDay;
-  mMonth = aEvent.mMonth;
-  mYear = aEvent.mYear;
-  mDate = aEvent.mDate;
-  mTimeList = aEvent.mTimeList;
-
-  return(*this);
-}
-
-void Event::changeEventName(std::string aEventName)
-{
-  mEventName = aEventName;
-}
-
-void Event::changeEventDate(int aDay, int aMonth, int aYear)
-{
-  try
-  {
-    mMonth = setEventMonth(aMonth);
-  }
-  catch(PrecondViolatedExcep& pve)
-  {
-    std::cerr<<std::endl<<pve.what()<<std::endl;
-  }
-
-  try
-  {
-    mYear = setEventYear(aYear);
-  }
-  catch(PrecondViolatedExcep& pve)
-  {
-    std::cerr<<std::endl<<pve.what()<<std::endl;
-  }
-
-  try
-  {
-    mDay = setEventDay(aDay);
-  }
-  catch(PrecondViolatedExcep& pve)
-  {
-    std::cerr<<std::endl<<pve.what()<<std::endl;
-  }
-
-  mDate = setEventDate();
-}
-
-void Event::addEventTime(int aHour, int aMinute, int aTimeType, std::string aDayTime, std::string aNewAttendeeName)
-{
-
-}
-
-void Event::addEventAttendee(std::string aTime, std::string aNewAttendeeName)
-{
-
-}
-
 std::string Event::getEventName()
 {
   return(mEventName);
@@ -278,7 +275,7 @@ bool Event::isLeapYear()
   }
 }
 
-int Event::setEventDay(int aDay) throw (PrecondViolatedExcep)
+void Event::setEventDay(int aDay) throw (PrecondViolatedExcep)
 {
   if((mMonth == 1) || (mMonth == 3) || (mMonth == 5) || (mMonth == 7) || (mMonth == 8) || (mMonth == 10) || (mMonth == 12))
   {
@@ -288,7 +285,7 @@ int Event::setEventDay(int aDay) throw (PrecondViolatedExcep)
     }
     else
     {
-      return(aDay);
+      mDay = aDay;
     }
   }
   else if((mMonth == 4) || (mMonth == 6) || (mMonth == 9) || (mMonth == 11))
@@ -299,7 +296,7 @@ int Event::setEventDay(int aDay) throw (PrecondViolatedExcep)
     }
     else
     {
-      return(aDay);
+      mDay = aDay;
     }
   }
   else if((mMonth == 2) && isLeapYear())
@@ -310,7 +307,7 @@ int Event::setEventDay(int aDay) throw (PrecondViolatedExcep)
     }
     else
     {
-      return(aDay);
+      mDay = aDay;
     }
   }
   else
@@ -321,12 +318,12 @@ int Event::setEventDay(int aDay) throw (PrecondViolatedExcep)
     }
     else
     {
-      return(aDay);
+      mDay = aDay;
     }
   }
 }
 
-int Event::setEventMonth(int aMonth) throw (PrecondViolatedExcep)
+void Event::setEventMonth(int aMonth) throw (PrecondViolatedExcep)
 {
   if((aMonth < 1) || (aMonth > 12))
   {
@@ -334,11 +331,11 @@ int Event::setEventMonth(int aMonth) throw (PrecondViolatedExcep)
   }
   else
   {
-    return(aMonth);
+    mMonth = aMonth;
   }
 }
 
-int Event::setEventYear(int aYear) throw (PrecondViolatedExcep)
+void Event::setEventYear(int aYear) throw (PrecondViolatedExcep)
 {
   if(aYear < 2018)
   {
@@ -346,11 +343,15 @@ int Event::setEventYear(int aYear) throw (PrecondViolatedExcep)
   }
   else
   {
-    return(aYear);
+    mYear = aYear;
   }
 }
 
-std::string Event::setEventDate()
+void Event::setEventDate()
 {
-  return(0); //debug
+  std::string tempDay = std::to_string(mDay);
+  std::string tempMonth = std::to_string(mMonth);
+  std::string tempYear = std::to_string(mYear);
+
+  mDate = tempMonth + '/' + tempDay + '/' + tempYear;
 }

@@ -9,13 +9,15 @@ Date Due: 02/12/18
 #ifndef _LINKED_LIST
 #define _LINKED_LIST
 
-#include "ListInterface.h"
+//#include "ListInterface.h"
 #include "Node.h"
 #include <string>
 #include <iostream>
+#include "PrecondViolatedExcep.h"
+#include <stdexcept>
 
 template<class ItemType>
-class LinkedList : public ListInterface<ItemType>
+class LinkedList //: public ListInterface<ItemType>
 {
 	public:
 

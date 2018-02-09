@@ -68,16 +68,7 @@ public:
    @pre none
    @post  A new Event's time has been created and an attendee has been added
    @return  none */
-  void addEventTime(int aHour, int aMinute, int aTimeType, std::string aDayTime, std::string aNewAttendeeName);
-
-  /** @brief sets/changes the name of a specific attendee of an Event
-
-   @pre IMPORTANT: The event time must already exist!
-    The time string must be in the form HH:MMam or HH:MMpm for 12 hour time and
-    HH:MM for 24 hour time.
-   @post  An attendee's name has been set to an Event time
-   @return  none */
-  void addEventAttendee(std::string aTime, std::string aNewAttendeeName);
+  void addEventTime_Attendee(int aHour, int aMinute, int aTimeType, std::string aDayTime, std::string aAttendeeName);
 
   /** @brief gets the name of the Event
 
@@ -115,28 +106,28 @@ private:
    @pre IMPORTANT: the Event month and year must be already set
    @post  The Event's day has been set/changed
    @return  none */
-  int setEventDay(int aDay) throw (PrecondViolatedExcep);
+  void setEventDay(int aDay) throw (PrecondViolatedExcep);
 
   /** @brief checks to make sure the month is valid
 
    @pre none
    @post  The Event's month has been set/changed
    @return  none */
-  int setEventMonth(int aMonth) throw (PrecondViolatedExcep);
+  void setEventMonth(int aMonth) throw (PrecondViolatedExcep);
 
   /** @brief checks to make sure the year is valid
 
    @pre none
    @post  The Event's year has been set/changed
    @return  none */
-  int setEventYear(int aYear) throw (PrecondViolatedExcep);
+  void setEventYear(int aYear) throw (PrecondViolatedExcep);
 
   /** @brief sets/changes the date of an Event
 
    @pre none
    @post  The Event's date has been set/changed
    @return  string representing the date in the form MM/DD/YYYY */
-  std::string setEventDate();
+  void setEventDate();
 
   std::string mEventName; //!< The name of the Event
   int mDay; //!< The day of the event

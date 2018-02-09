@@ -1,6 +1,6 @@
 Project1: main.o Executive.o Time.o Event.o PrecondViolatedExcep.o
 	g++ -std=c++11 -g -Wall main.o Executive.o Time.o Event.o PrecondViolatedExcep.o -o Project1
-main.o: main.cpp ListInterface.h LinkedList.h LinkedList.hpp Node.h Node.hpp
+main.o: main.cpp LinkedList.h LinkedList.hpp Node.h Node.hpp
 	g++ -std=c++11 -g -Wall -c main.cpp
 Executive.o: Executive.cpp
 	g++ -std=c++11 -g -Wall -c Executive.cpp
