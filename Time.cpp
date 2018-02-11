@@ -34,7 +34,7 @@ void Time::setHour(int hour)
 	bool validHour;
 	if(m_timeType == 12)
 	{
-		if(hour > 12 || hour < 1)
+		if(hour > 12 || hour < 1 || (m_daytime=="am" && (hour==12 || hour<=5)) || (m_daytime=="pm" && (hour==12 || hour==1)))
 		{
 			validHour = false;
 		}
@@ -45,7 +45,7 @@ void Time::setHour(int hour)
 	}
 	else if(m_timeType == 24)
 	{
-		if(hour > 24 || hour < 0)
+		if(hour > 24 || hour<=5 || hour==12 || hour==13)
 		{
 			validHour = false;
 		}
