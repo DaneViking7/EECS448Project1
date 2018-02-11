@@ -5,81 +5,68 @@ Project Number: 01
 Description: This is the implementation file for the Executive class.
 Date Due: 02/12/18
 ----------------------------------------------------------------------------------------*/
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <limits>
+#include <sstream>
 #include "Executive.h"
+using namespace std;
 
 Executive::Executive()
 {
 	ifstream inFile; 
-	inFile.open(database.txt);
+	inFile.open("database.txt");
 	if(!inFile.is_open())
 	{
 		ofstream outFile("database.txt");
+		inFile.open("database.txt");
 	}
-	inFile>>;
-	rosta=new Collection<Roster>(num);
-	char space=' ';
-	string cName, tempTotal;
-	int myCount=0;
-	int nStudents;
-	stringstream object;
-	object.clear();
-	object.str("");
-	if(myCount==0)
+	string eventName;
+	string namekey="";
+	Event newEvent;
+	int eventMonth;
+	int eventDay;
+	int eventYear;
+	int eventHour;
+	int eventMinute;
+	int eventTT;
+	string eventDT;
+	string attkey="";
+	string eventAttendee;
+	int count=1;
+	event=new LinkedList<Event>;
+	while(namekey!="none")
 	{
-		getline(inFile, cName, '\n');
-	}
-	while(getline(inFile, cName, space))
-	{
-		getline(inFile, tempTotal, space);
-		object.str(tempTotal);
-		object>>nStudents;
-		object.clear();
-		object.str("");
-		int* studentIDs=new int[nStudents];
-		for(int h=0; h<nStudents; h++)
+		while(getline(inFile, eventName, '\n'))
 		{
-			if(h<(nStudents-1))
+			cin>>eventMonth;
+			cin>>eventDay;
+			cin>>eventYear;
+			cin>>eventHour;
+			cin>>eventMinute;
+			cin>>eventDT;
+			cin>>eventTT;
+			cin>>eventAttendee;
+			newEvent=new Event(eventName, eventDay, eventMonth, eventYear, eventAttendee, eventHour, eventMinute, eventTT, eventDT);
+			cin>>attkey;
+			while(eventHour!=3398)
 			{
-				string tempID;
-				getline(inFile, tempID, space);
-				object.str(tempID);
-				object>>studentIDs[h];
-				object.clear();
-				object.str("");
+				while(attkey!=none)
+				{
+					attkey=eventAttendee;
+					addEventTime_Attendee(eventHour, eventMinute, eventTT, eventDT, eventAttendee);
+				}
+				cin>>eventHour;	
+				cin>>eventMinute;
+				cin>>eventDT;
+				cin>>eventTT;
 			}
-			else
-			{
-				string tempID;
-				getline(inFile, tempID);
-				object.str(tempID);
-				object>>studentIDs[h];
-				object.clear();
-				object.str("");
-			}
+			
 		}
-		Roster obj(cName, nStudents, studentIDs);
-		rosta->appendItem(obj);
-		myCount++;
-		delete[] studentIDs;
-	}
-	int size=num;
-	while(size<myCount)
-	{
-		size=size * 2;
-	}
-	while(myCount<size)
-	{
-		string cName = "";
-		int nStudents = 2;
-		int* studentIDs=new int[nStudents];
-		for(int j=0; j<nStudents; j++)
-		{
-			studentIDs[j] = 0;
-		}
-		Roster ros(cName, nStudents, studentIDs);
-		rosta->appendItem(ros);
-		myCount++; 
-		delete[] studentIDs;
+		event.insert(count, newEvent);
+		count++;
+		cin>>nameKey;
 	}
 	inFile.close();
 }
@@ -336,5 +323,78 @@ void Executive::availMode()
 
 void Executive::run()
 {
-
+	int choice=0;
+	string name;
+	int month;
+	int day;
+	int year;
+	int hour;
+	int minute;
+	string DT;
+	int TT;
+	string attendee;
+	ofstream outFile;
+	int count=1;
+	int count2=1;
+	int count3=0;
+	outFile.open("database.txt");
+	while(choice!=3)//creating the selection menu
+	{
+		cout<<"(1) Admin Mode\n";
+		cout<<"(2) Attendee Mode\n";
+		cout<<"(3) Quit\n";
+		cout<<"Enter your choice: ";
+		cin>>choice;
+		if(choice==1)
+		{
+			adminMode();
+		}
+		else if(choice==2)
+		{
+			availMode();
+		}
+	}
+	while(count<(event->getLength())
+	{
+		gottenEvent=event->getEntry(count);
+		name=gottenEvent->getEventName();
+		outFile<<name<<'\n';
+		month=gottenEvent->getMonth();
+		outFile<<month<<'\n';
+		day=gottenEvent->getDay();
+		outFile<<day<<'\n';
+		year=gottenEvent->getYear();
+		outFile<<year<<'\n';
+		while(count2<=(gottenEvent->(getEventTimes()->getLength())
+		{
+			hour=gottenEvent->(getEventTimes()->(getEntry(count2)->getHour()))
+			outFile<<hour<<'\n';
+			minute=gottenEvent->(getEventTimes()->(getEntry(count2)->getMinute()))
+			outFile<<minute<<'\n';
+			DT=gottenEvent->(getEventTimes()->(getEntry(count2)->getDayTime()))
+			outFile<<DT<<'\n';
+			TT=gottenEvent->(getEventTimes()->(getEntry(count2)->getTimeType()))
+			outFile<<TT<<'\n';
+			while(count3<=(gottenEvent->(getEventTimes()->(getEntry(count2)->getAttendeesSize()))))
+			{
+				attendee=(gottenEvent->(getEventTimes()->(getEntry(count2)->getAttendee(count3))))
+				outFile<<attendee<<'\n';
+				count3++;
+			}
+			outFile<<"none";
+			count2++;
+		}
+		outFile<<3398;
+		count++;
+	}
+	outFile<<"none";
+	gottenEvent=event->getEntry(count);
+	name=gottenEvent->getEventName();
+	outFile<<name<<'\n';
+	month=gottenEvent->getMonth();
+	outFile<<month<<'\n';
+	day=gottenEvent->getDay();
+	outFile<<day<<'\n';
+	year=gottenEvent->getYear();
+	outFile.close();
 }
