@@ -255,11 +255,6 @@ LinkedList<Time>* Event::getEventTimes()
   return(mTimeList);
 }
 
-void addAttendee(Time t, string name)
-{
-	t.addAttendees(name);
-}
-
 bool Event::isLeapYear()
 {
   if((mYear % 400) == 0)

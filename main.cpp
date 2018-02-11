@@ -8,19 +8,13 @@ Date Due: 02/12/18
 #include <iostream>
 #include "Executive.h"
 #include <string>
+using namespace std;
 
 int main(int argc, char* argv[])
 {
-  //checks to make sure the correct number of arguments were passed through the command line.
-  if (argc != 2)
-  {
-    std::cout<<"Invalid number of arguments.\n"; //if incorrect number of arguements, tell user, exit.
-  }
-  else
-  {
-    Executive exec(argv[1]); /*declares and creates object of Executive Class;
+  
+	Executive myExecutive;/*declares and creates object of Executive Class;
         calls constructor that takes the file name stored in argv[1] as a parameter*/
-  }
-
-  return(0);
+	myExecutive.run();
+	return(0);
 }
