@@ -93,6 +93,13 @@ public:
     Event and the people who can attend at each time*/
   LinkedList<Time>* getEventTimes();
 
+	/** @brief adds an attendee to an event time
+	@pre none
+	@post adds an attendee to a time slot
+	@return none
+	**/
+	void addAttendee(Time t, string name);
+
 private:
   /** @brief determines whether a given year is a leap year
 
