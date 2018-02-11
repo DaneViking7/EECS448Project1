@@ -245,6 +245,20 @@ std::string Event::getEventName()
   return(mEventName);
 }
 
+int Event::getMonth()
+{
+	return(mMonth);
+}
+
+int Event::getDay()
+{
+	return(mDay);
+}
+
+int Event::getYear()
+{
+	return(mYear);
+}
 std::string Event::getEventDate()
 {
   return(mDate);

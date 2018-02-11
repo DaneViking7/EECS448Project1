@@ -77,6 +77,24 @@ public:
    @return a string representing the name of the Event*/
   std::string getEventName();
 
+	/** @brief gets the month of the Event, really needed for Executive
+	@pre none
+	@post gets the month of the Event
+	@return an int representing the month the Event takes place*/
+	int getMonth();
+
+	/** @brief gets the day of the Event, really needed for Executive
+	@pre none
+	@post gets the day of the Event
+	@return an int representing the day the Event takes place*/
+	int getDay();
+
+	/** @brief gets the year of the Event, really needed for Executive
+	@pre none
+	@post gets the year of the Event
+	@return an int representing the year the Event takes place*/
+	int getYear();
+
   /** @brief gets the date of the Event
 
    @pre none
