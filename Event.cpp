@@ -167,10 +167,10 @@ void Event::changeEventDate(int aDay, int aMonth, int aYear)
 void Event::addEventTime_Attendee(int aHour, int aMinute, int aTimeType, std::string aDayTime, std::string aAttendeeName)
 {
   Time tempTimeObj;
-  tempTimeObj.setHour(aHour);
-  tempTimeObj.setMinute(aMinute);
   tempTimeObj.setTimeType(aTimeType);
   tempTimeObj.setDayTime(aDayTime);
+  tempTimeObj.setHour(aHour);
+  tempTimeObj.setMinute(aMinute);
   tempTimeObj.setTime();
 
   if(mTimeList->isEmpty())
@@ -279,7 +279,7 @@ void Event::setEventDay(int aDay) throw (PrecondViolatedExcep)
 {
   if((mMonth == 1) || (mMonth == 3) || (mMonth == 5) || (mMonth == 7) || (mMonth == 8) || (mMonth == 10) || (mMonth == 12))
   {
-    if((aDay < 1) || (aDay > 31))
+    if((aDay < 1) || (aDay > 31) || ((mMonth == 12) && (aDay == 25)) || ((mMonth == 1) && (aDay == 1)) || ((mMonth == 7) && (aDay == 4)))
     {
       throw PrecondViolatedExcep("Invalid Day.");
     }
