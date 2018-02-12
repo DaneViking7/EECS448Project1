@@ -24,7 +24,6 @@ Executive::Executive()
 	}
 	string eventName;
 	string namekey="";
-	Event newEvent;
 	int eventMonth;
 	int eventDay;
 	int eventYear;
@@ -34,39 +33,38 @@ Executive::Executive()
 	string eventDT;
 	string attkey="";
 	string eventAttendee;
-	int count=1;
-	event=new LinkedList<Event>;
-	while(namekey!="none")
+	events=new LinkedList<Event>;
+	while(getline(inFile, eventName, '\n'))
 	{
-		while(getline(inFile, eventName, '\n'))
+		cin>>eventMonth;
+		cin>>eventDay;
+		cin>>eventYear;
+		cin>>eventHour;
+		cin>>eventMinute;
+		cin>>eventDT;
+		cin>>eventTT;
+		cin>>eventAttendee;
+	    Event newEvent(eventName, eventDay, eventMonth, eventYear, eventAttendee, eventHour, eventMinute, eventTT, eventDT);
+		cin>>attkey;
+		while(eventHour!=3398)
 		{
-			cin>>eventMonth;
-			cin>>eventDay;
-			cin>>eventYear;
-			cin>>eventHour;
-			cin>>eventMinute;
-			cin>>eventDT;
-			cin>>eventTT;
-			cin>>eventAttendee;
-			newEvent=new Event(eventName, eventDay, eventMonth, eventYear, eventAttendee, eventHour, eventMinute, eventTT, eventDT);
-			cin>>attkey;
-			while(eventHour!=3398)
+			while(attkey!="none")
 			{
-				while(attkey!=none)
-				{
-					attkey=eventAttendee;
-					addEventTime_Attendee(eventHour, eventMinute, eventTT, eventDT, eventAttendee);
-				}
-				cin>>eventHour;	
+				eventAttendee = attkey;
+				newEvent.addEventTime_Attendee(eventHour, eventMinute, eventTT, eventDT, eventAttendee);
+				cin>>attkey;
+			}
+			cin>>eventHour;	
+			if(eventHour!=3398)
+			{
 				cin>>eventMinute;
 				cin>>eventDT;
 				cin>>eventTT;
+				cin>>eventAttendee;
+				newEvent.addEventTime_Attendee(eventHour, eventMinute, eventTT, eventDT, eventAttendee);
 			}
-			
 		}
-		event.insert(count, newEvent);
-		count++;
-		cin>>nameKey;
+		events->insert(1, newEvent);
 	}
 	inFile.close();
 }
@@ -108,7 +106,7 @@ void Executive::adminMode()
 				LinkedList<Time>* times = events->getEntry(choice).getEventTimes();
 				for(int j = 1; j <= times->getLength(); j++)
 				{
-					attSize = times->getEntry(j).getAttendeesSize();
+					int attSize = times->getEntry(j).getAttendeesSize();
 					cout<<"\n"<<times->getEntry(j).getTime();
 					for(int k = 0; k < attSize; k++)
 					{
@@ -197,7 +195,7 @@ void Executive::adminMode()
 				events->insert(1, temp);
 				cout<<"Would you like to add another time for your event? (y/n): ";
 				cin>>done;
-				while(cin.fail() || (att != y && att != n))
+				while(cin.fail() || (done != 'y' && done != 'n'))
 				{
 					cin.clear();
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -246,7 +244,7 @@ void Executive::adminMode()
 					events->insert(1, temp);
 					cout<<"Would you like to add another time for your event? (y/n): ";
 					cin>>done;
-					while(cin.fail() || (att != y && att != n))
+					while(cin.fail() || (done != 'y' && done != 'n'))
 					{
 						cin.clear();
 						cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -299,14 +297,14 @@ void Executive::availMode()
 					char att;
 					cout<<"Can you attend the event at "<<times->getEntry(j).getTime()<<" (y/n): ";
 					cin>>att;
-					while(cin.fail() || (att != y && att != n))
+					while(cin.fail() || (att != 'y' && att != 'n'))
 					{
 						cin.clear();
 						cin.ignore(numeric_limits<streamsize>::max(), '\n');
 						cout<<"Enter a valid option: ";
 						cin>>att;
 					}
-					if(att == y)
+					if(att == 'y')
 					{
 						events->getEntry(choice).addEventTime_Attendee(times->getEntry(j).getHour(), times->getEntry(j).getMinute(), times->getEntry(j).getTimeType(), times->getEntry(j).getDayTime(), user);
 					}
@@ -334,9 +332,6 @@ void Executive::run()
 	int TT;
 	string attendee;
 	ofstream outFile;
-	int count=1;
-	int count2=1;
-	int count3=0;
 	outFile.open("database.txt");
 	while(choice!=3)//creating the selection menu
 	{
@@ -354,47 +349,35 @@ void Executive::run()
 			availMode();
 		}
 	}
-	while(count<(event->getLength())
+	for(int i = 1; i<=(events->getLength()); i++)
 	{
-		gottenEvent=event->getEntry(count);
-		name=gottenEvent->getEventName();
+		name=events->getEntry(i).getEventName();
 		outFile<<name<<'\n';
-		month=gottenEvent->getMonth();
+		month=events->getEntry(i).getMonth();
 		outFile<<month<<'\n';
-		day=gottenEvent->getDay();
+		day=events->getEntry(i).getDay();
 		outFile<<day<<'\n';
-		year=gottenEvent->getYear();
+		year=events->getEntry(i).getYear();
 		outFile<<year<<'\n';
-		while(count2<=(gottenEvent->(getEventTimes()->getLength())
+		LinkedList<Time>* times = events->getEntry(i).getEventTimes();
+		for(int j = 1; j<=(times->getLength()); j++)
 		{
-			hour=gottenEvent->(getEventTimes()->(getEntry(count2)->getHour()))
+			hour=times->(getEntry(j)->getHour());
 			outFile<<hour<<'\n';
-			minute=gottenEvent->(getEventTimes()->(getEntry(count2)->getMinute()))
+			minute=times->(getEntry(j)->getMinute());
 			outFile<<minute<<'\n';
-			DT=gottenEvent->(getEventTimes()->(getEntry(count2)->getDayTime()))
+			DT=times->(getEntry(j)->getDayTime());
 			outFile<<DT<<'\n';
-			TT=gottenEvent->(getEventTimes()->(getEntry(count2)->getTimeType()))
+			TT=times->(getEntry(j)->getTimeType());
 			outFile<<TT<<'\n';
-			while(count3<=(gottenEvent->(getEventTimes()->(getEntry(count2)->getAttendeesSize()))))
+			for(int k = 0; k<(times->(getEntry(j)->getAttendeesSize())); k++)
 			{
-				attendee=(gottenEvent->(getEventTimes()->(getEntry(count2)->getAttendee(count3))))
+				attendee=(times->(getEntry(j)->getAttendee(k)));
 				outFile<<attendee<<'\n';
-				count3++;
 			}
-			outFile<<"none";
-			count2++;
+			outFile<<"none\n";
 		}
-		outFile<<3398;
-		count++;
+		outFile<<3398<<"\n";
 	}
-	outFile<<"none";
-	gottenEvent=event->getEntry(count);
-	name=gottenEvent->getEventName();
-	outFile<<name<<'\n';
-	month=gottenEvent->getMonth();
-	outFile<<month<<'\n';
-	day=gottenEvent->getDay();
-	outFile<<day<<'\n';
-	year=gottenEvent->getYear();
 	outFile.close();
 }

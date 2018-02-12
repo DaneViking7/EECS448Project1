@@ -13,6 +13,8 @@ Date Due: 02/12/18
 #include <fstream>
 #include <limits>
 #include <stdexcept>
+#include "LinkedList.h"
+#include "Event.h"
 
 class Executive
 {
@@ -21,7 +23,7 @@ public:
     @pre none
     @post sets up executive class, then calls on run()
     @return none*/
-  Executive(std::string fileName);
+  Executive();
 
   /*destructor
     @pre none
