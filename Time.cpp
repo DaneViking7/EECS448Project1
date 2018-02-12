@@ -12,9 +12,30 @@ Time::Time() : m_time( " " ), m_hour( 0 ), m_minute( 0 ), m_timeType( 0 ), m_day
 
 }
 
+Time::Time(const Time& aTime)
+{
+	m_time = aTime.m_time;
+	m_hour = aTime.m_hour;
+	m_minute = aTime.m_minute;
+	m_timeType = aTime.m_timeType;
+	m_daytime = aTime.m_daytime;
+	m_attendees = aTime.m_attendees;
+}
+
 Time::~Time()
 {
 
+}
+
+Time Time::operator=(const Time& aTime)
+{
+	m_time = aTime.m_time;
+	m_hour = aTime.m_hour;
+	m_minute = aTime.m_minute;
+	m_timeType = aTime.m_timeType;
+	m_daytime = aTime.m_daytime;
+	m_attendees = aTime.m_attendees;
+	return(*this);
 }
 
 void Time::setTimeType(int type)
@@ -34,18 +55,18 @@ void Time::setHour(int hour)
 	bool validHour;
 	if(m_timeType == 12)
 	{
-		if(hour > 12 || hour < 1 || (m_daytime=="am" && (hour==12 || hour<=5)) || (m_daytime=="pm" && (hour==12 || hour==1)))
+		if(hour > 12 || hour < 1 || (m_daytime=="am" && (hour==12 || hour<=4)) || (m_daytime=="pm" && hour==12 ))
 		{
 			validHour = false;
 		}
 		else
-                {
-                        validHour = true;
-                }
+        {
+            validHour = true;
+        }
 	}
 	else if(m_timeType == 24)
 	{
-		if(hour > 24 || hour<=5 || hour==12 || hour==13)
+		if(hour > 24 || hour<=4 || hour==12)
 		{
 			validHour = false;
 		}
@@ -69,14 +90,14 @@ void Time::setHour(int hour)
 		std::cin>>newHour;
 		if(m_timeType == 12)
 		{
-			if(newHour <=12 && newHour >=1)
+			if(newHour <=12 && newHour >=1 && !(m_daytime=="am" && (hour==12 || hour<=4)) && !(m_daytime=="pm" && hour==12 ))
 			{
 				validHour = true;
 			}
 		}
 		else if(m_timeType == 24)
 		{
-			if(newHour <=24 && newHour >=1)
+			if(newHour <=24 && newHour >=5 && newHour != 12)
 			{
 				validHour = true;
 			}
@@ -89,7 +110,7 @@ void Time::setHour(int hour)
 void Time::setMinute(int minute)
 {
 	bool validMinute;
-	if(minute != 0 || minute != 20 || minute != 40)
+	if(minute != 0 && minute != 20 && minute != 40)
 	{
 		validMinute = false;
 	}
@@ -114,7 +135,7 @@ void Time::setMinute(int minute)
 void Time::setDayTime(std::string daytime)
 {
 	bool validDaytime;
-	if(daytime != "am" || daytime != "pm")
+	if(daytime != "am" && daytime != "pm")
 	{
 		validDaytime = false;
 	}
@@ -124,7 +145,7 @@ void Time::setDayTime(std::string daytime)
 	}
 	while(!validDaytime)
 	{
-		std::string newDaytime = daytime;
+		std::string newDaytime;
 		std::cout<<"Invalid daytime.\nPlease enter am or pm: ";
 		std::cin>>newDaytime;
 		if(daytime == "am" || daytime == "pm")
@@ -158,26 +179,28 @@ std::string Time::getDayTime()
 
 void Time::setTime()
 {
+	std::string tempHour = std::to_string(m_hour);
+	std::string tempMin = std::to_string(m_minute);
 	if(m_timeType == 12)
 	{
 		if(m_minute < 10)
 		{
-			m_time = m_hour+":0"+m_minute+m_daytime;
+			m_time = tempHour+":0"+tempMin+m_daytime;
 		}
 		else
 		{
-			m_time = m_hour+":"+m_minute+m_daytime;
+			m_time = tempHour+":"+tempMin+m_daytime;
 		}
 	}
 	else if(m_timeType == 24)
 	{
 		if(m_minute < 10)
                 {
-                        m_time = m_hour+":0"+m_minute;
+                        m_time = tempHour+":0"+tempMin;
                 }
                 else
                 {
-                        m_time = m_hour+":"+m_minute;
+                        m_time = tempHour+":"+tempMin;
                 }
 	}
 }

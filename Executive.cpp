@@ -36,62 +36,70 @@ Executive::Executive()
 	events=new LinkedList<Event>;
 	while(getline(inFile, eventName, '\n'))
 	{
-		cin>>eventMonth;
-		cin>>eventDay;
-		cin>>eventYear;
-		cin>>eventHour;
-		cin>>eventMinute;
-		cin>>eventDT;
-		cin>>eventTT;
-		cin>>eventAttendee;
+		inFile>>eventMonth;
+		inFile>>eventDay;
+		inFile>>eventYear;
+		inFile>>eventHour;
+		inFile>>eventMinute;
+		inFile>>eventDT;
+		inFile>>eventTT;
+		inFile>>eventAttendee;
 	    Event newEvent(eventName, eventDay, eventMonth, eventYear, eventAttendee, eventHour, eventMinute, eventTT, eventDT);
-		cin>>attkey;
+		inFile>>attkey;
 		while(eventHour!=3398)
 		{
 			while(attkey!="none")
 			{
 				eventAttendee = attkey;
 				newEvent.addEventTime_Attendee(eventHour, eventMinute, eventTT, eventDT, eventAttendee);
-				cin>>attkey;
+				inFile>>attkey;
 			}
-			cin>>eventHour;	
+			inFile>>eventHour;
 			if(eventHour!=3398)
 			{
-				cin>>eventMinute;
-				cin>>eventDT;
-				cin>>eventTT;
-				cin>>eventAttendee;
+				inFile>>eventMinute;
+				inFile>>eventDT;
+				inFile>>eventTT;
+				inFile>>eventAttendee;
 				newEvent.addEventTime_Attendee(eventHour, eventMinute, eventTT, eventDT, eventAttendee);
+				inFile>>attkey;
 			}
 		}
 		events->insert(1, newEvent);
+		getline(inFile, eventName, '\n');
 	}
 	inFile.close();
 }
 
 Executive::~Executive()
 {
-	delete events;
+	if(!events->isEmpty())
+  {
+    delete events;
+  }
 }
 
 void Executive::adminMode()
 {
-	int size = events->getLength();
 	string user;
 	cout<<"Enter your name: ";
-	cin>>user;
+	cin.ignore();
+	getline(cin, user);
 	cout<<"\n";
 	try
 	{
-		int choice;
+		int choice = -2;
 		while(choice != 0)
 		{
+			int size = events->getLength();
+			if(size == 0)
+				cout<<"No events currently.\n";
 			for(int i = 1; i <= size; i++) //lists out all of the events
 			{
 				Event temp = events->getEntry(i);
 				cout<<"Event "<<(i)<<": "<<temp.getEventName()<<", "<<temp.getEventDate()<<endl;
 			}
-			cout<<"\nEnter an event number to check its status, -1 to add an event, or enter 0 to exit: ";
+			cout<<"\nEnter an event number to check its status, -1 to add an event, or 0 to exit: ";
 			cin>>choice;
 			while(cin.fail() || choice < -1 || choice > size)
 			{
@@ -127,7 +135,8 @@ void Executive::adminMode()
 				string eDayTime;
 				char done;
 				cout<<"Enter an event name: ";
-				cin>>eName;
+				cin.ignore();
+				getline(cin, eName);
 				cout<<"Enter the event month: ";
 				cin>>eMonth;
 				while(cin.fail())
@@ -157,7 +166,7 @@ void Executive::adminMode()
 				}
 				cout<<"Would you like to keep track of the time of your event using the 12 or 24 hour clock (12/24): ";
 				cin>>eTimeType;
-				while(cin.fail())
+				while(cin.fail() || (eTimeType != 12 && eTimeType != 24))
 				{
 					cin.clear();
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -183,16 +192,9 @@ void Executive::adminMode()
 					cin>>eMinute;
 				}
 				cout<<"On the 12 hour clock, is this time am or pm (am/pm): ";
-				cin>>eDayTime;
-				while(cin.fail())
-				{
-					cin.clear();
-					cin.ignore(numeric_limits<streamsize>::max(), '\n');
-					cout<<"Enter a valid option: ";
-					cin>>eDayTime;
-				}
+				cin.ignore();
+				getline(cin, eDayTime);
 				Event temp(eName, eDay, eMonth, eYear, user, eHour, eMinute, eTimeType, eDayTime);
-				events->insert(1, temp);
 				cout<<"Would you like to add another time for your event? (y/n): ";
 				cin>>done;
 				while(cin.fail() || (done != 'y' && done != 'n'))
@@ -202,7 +204,7 @@ void Executive::adminMode()
 					cout<<"Enter a valid option: ";
 					cin>>done;
 				}
-				while(done != 'y')
+				while(done != 'n')
 				{
 					cout<<"Would you like to keep track of the time of your event using the 12 or 24 hour clock (12/24): ";
 					cin>>eTimeType;
@@ -240,8 +242,7 @@ void Executive::adminMode()
 						cout<<"Enter a valid option: ";
 						cin>>eDayTime;
 					}
-					Event temp(eName, eDay, eMonth, eYear, user, eHour, eMinute, eTimeType, eDayTime);
-					events->insert(1, temp);
+					temp.addEventTime_Attendee(eHour, eMinute, eTimeType, eDayTime, user);
 					cout<<"Would you like to add another time for your event? (y/n): ";
 					cin>>done;
 					while(cin.fail() || (done != 'y' && done != 'n'))
@@ -252,6 +253,7 @@ void Executive::adminMode()
 						cin>>done;
 					}
 				}
+				events->insert(1, temp);
 				cout<<"\n";
 			}
 		}
@@ -267,18 +269,21 @@ void Executive::availMode()
 	int size = events->getLength();
 	string user;
 	cout<<"Enter your name: ";
-	cin>>user;
+	cin.ignore();
+	getline(cin, user);
 	cout<<"\n";
 	try
 	{
-		for(int i = 1; i <= size; i++)
-		{
-			Event temp = events->getEntry(i);
-			cout<<"Event "<<(i)<<": "<<temp.getEventName()<<", "<<temp.getEventDate()<<endl;
-		}
-		int choice;
+		int choice = -2;
 		while(choice != 0)
 		{
+			if(size == 0)
+				cout<<"No events currently.\n";
+			for(int i = 1; i <= size; i++)
+			{
+				Event temp = events->getEntry(i);
+				cout<<"Event "<<(i)<<": "<<temp.getEventName()<<", "<<temp.getEventDate()<<endl;
+			}
 			cout<<"\nEnter an event number to indicate availability or enter 0 to exit: ";
 			cin>>choice;
 			while(cin.fail() || choice < 0 || choice > size)
@@ -340,6 +345,13 @@ void Executive::run()
 		cout<<"(3) Quit\n";
 		cout<<"Enter your choice: ";
 		cin>>choice;
+		while(cin.fail() || choice > 3 || choice < 1)
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout<<"Enter a valid option: ";
+			cin>>choice;
+		}
 		if(choice==1)
 		{
 			adminMode();
@@ -362,17 +374,17 @@ void Executive::run()
 		LinkedList<Time>* times = events->getEntry(i).getEventTimes();
 		for(int j = 1; j<=(times->getLength()); j++)
 		{
-			hour=times->(getEntry(j)->getHour());
+			hour=times->getEntry(j).getHour();
 			outFile<<hour<<'\n';
-			minute=times->(getEntry(j)->getMinute());
+			minute=times->getEntry(j).getMinute();
 			outFile<<minute<<'\n';
-			DT=times->(getEntry(j)->getDayTime());
+			DT=times->getEntry(j).getDayTime();
 			outFile<<DT<<'\n';
-			TT=times->(getEntry(j)->getTimeType());
+			TT=times->getEntry(j).getTimeType();
 			outFile<<TT<<'\n';
-			for(int k = 0; k<(times->(getEntry(j)->getAttendeesSize())); k++)
+			for(int k = 0; k<(times->getEntry(j).getAttendeesSize()); k++)
 			{
-				attendee=(times->(getEntry(j)->getAttendee(k)));
+				attendee=(times->getEntry(j).getAttendee(k));
 				outFile<<attendee<<'\n';
 			}
 			outFile<<"none\n";

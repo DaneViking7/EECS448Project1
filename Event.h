@@ -20,6 +20,13 @@ Date Due: 02/12/18
 class Event
 {
 public:
+  /** @brief constructor which takes no parameters
+
+   @pre none
+   @post creates a new event and sets all the member variables to blank values
+   @return none */
+  Event();
+
   /** @brief constructor which takes an Event name, a day, a month, a year, an attendee name,
     an hour, a minute, a time type (12hr or 24 hr) and a day time (AM/PM)
 

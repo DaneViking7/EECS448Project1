@@ -20,12 +20,21 @@ class Time
 	    @post initializes member variables to temporary values
 	    @return none*/
 		Time();
-
+		/*copy constructor
+	    @pre none
+	    @post initializes member variables to the values of the passed in Time object
+	    @return none*/
+		Time(const Time& aTime);
 		/*destructor
 			@pre none
 			@post none
 			@return none*/
 		~Time();
+		/*operator = overload
+	    @pre none
+	    @post initializes member variables of the Time object on the lhs of the = to those of of the object on the rhs
+	    @return none*/
+		Time operator=(const Time& aTime);
 		/*
     		@pre type is a valid int
 		@post sets time type to either 12 or 24

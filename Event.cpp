@@ -7,6 +7,16 @@ Date Due: 02/12/18
 ----------------------------------------------------------------------------------------*/
 #include "Event.h"
 
+Event::Event()
+{
+	mEventName = "";
+	mDay = 0;
+	mMonth = 0;
+	mYear = 0;
+	mDate = "";
+	mTimeList = nullptr;
+}
+
 Event::Event(std::string aEventName, int aDay, int aMonth, int aYear, std::string aAttendeeName, int aHour, int aMinute, int aTimeType, std::string aDayTime)
 {
   mEventName = aEventName;
@@ -92,7 +102,7 @@ Event::Event(std::string aEventName, int aDay, int aMonth, int aYear, std::strin
 
   setEventDate();
 
-  mTimeList = new LinkedList<Time>();
+  mTimeList = new LinkedList<Time>;
 
   addEventTime_Attendee(aHour, aMinute, aTimeType, aDayTime, aAttendeeName);
 }
@@ -109,10 +119,10 @@ Event::Event(const Event& aEvent)
 
 Event::~Event()
 {
-  if(!mTimeList->isEmpty())
+  /*if(!mTimeList->isEmpty())
   {
     delete mTimeList;
-  }
+  }*/
 }
 
 Event Event::operator=(const Event& aEvent)
@@ -191,7 +201,7 @@ void Event::addEventTime_Attendee(int aHour, int aMinute, int aTimeType, std::st
     bool doesTimeExist = false;
     int timePosition = 0;
 
-    for(int i = 0; i < mTimeList->getLength(); i++)
+    for(int i = 1; i <= mTimeList->getLength(); i++)
     {
       try
       {
@@ -200,10 +210,6 @@ void Event::addEventTime_Attendee(int aHour, int aMinute, int aTimeType, std::st
           doesTimeExist = true;
           timePosition = i;
           break;
-        }
-        else
-        {
-          doesTimeExist = false;
         }
       }
       catch(PrecondViolatedExcep& pve)
@@ -217,7 +223,9 @@ void Event::addEventTime_Attendee(int aHour, int aMinute, int aTimeType, std::st
     {
       try
       {
-        (mTimeList->getEntry(timePosition)).addAttendees(aAttendeeName);
+		Time tim(mTimeList->getEntry(timePosition));
+		tim.addAttendees(aAttendeeName);
+		mTimeList->setEntry(timePosition, tim);
       }
       catch(PrecondViolatedExcep& pve)
       {
@@ -315,7 +323,7 @@ void Event::setEventDay(int aDay) throw (PrecondViolatedExcep)
   }
   else if((mMonth == 2) && isLeapYear())
   {
-    if((mMonth < 1) || (mMonth > 29))
+    if((aDay < 1) || (aDay > 29))
     {
       throw PrecondViolatedExcep("Invalid Day.");
     }
@@ -326,7 +334,7 @@ void Event::setEventDay(int aDay) throw (PrecondViolatedExcep)
   }
   else
   {
-    if((mMonth < 1) || (mMonth > 28))
+    if((aDay < 1) || (aDay > 28))
     {
       throw PrecondViolatedExcep("Invalid Day.");
     }
