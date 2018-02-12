@@ -48,6 +48,26 @@ class Time
 		void setDayTime(std::string daytime); //didn't know how else to call AM/PM
 		/*
     		@pre none
+		@post none
+    		@return m_timeType */
+		int getTimeType();
+		/*
+    		@pre none
+    		@post none
+    		@return m_hour */
+		int getHour();
+		/*
+    		@pre none
+    		@post none
+    		@return m_minute */
+		int getMinute();
+		/*
+                @pre none
+                @post none
+                @return m_daytime */
+		std::string getDayTime(); //didn't know how else to call AM/PM
+		/*
+    		@pre none
     		@post sets m_time
     		@return none */
 		void setTime();

@@ -136,6 +136,26 @@ void Time::setDayTime(std::string daytime)
 	m_daytime = daytime;
 }
 
+int Time::getTimeType()
+{
+	return m_timeType;
+}
+
+int Time::getHour()
+{
+	return m_hour;
+}
+
+int Time::getMinute()
+{
+	return m_minute;
+}
+
+std::string Time::getDayTime()
+{
+	return m_daytime;
+}
+
 void Time::setTime()
 {
 	if(m_timeType == 12)
