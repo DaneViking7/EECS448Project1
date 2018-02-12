@@ -16,11 +16,11 @@ using namespace std;
 class PrecondViolatedExcep : public logic_error
 {
 public:
-  /*constructor which takes an std::string error message from a throw as a parameter
+  /** @brief constructor which takes an std::string error message from a throw as a parameter
   @pre an exception must be thrown
   @post takes in the exxception thrown and prints a message to the screen saying
     that an exception was caught. Then handles the exception and moves on.
-  @return none*/
+  @return none**/
    PrecondViolatedExcep(const string& message = "");
 }; // end PrecondViolatedExcep
 #endif

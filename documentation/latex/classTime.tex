@@ -1,0 +1,400 @@
+\hypertarget{classTime}{}\section{Time Class Reference}
+\label{classTime}\index{Time@{Time}}
+
+
+{\ttfamily \#include $<$Time.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTime_a4245e409c7347d1d671858962c2ca3b5}{Time} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\hyperlink{classTime_a07d87f73be5aed8318c0c5f5d46e8afa}{Time} (const \hyperlink{classTime}{Time} \&a\+Time)
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\hyperlink{classTime_a1e92dbe963fa3cdd6bea207680f5f6d1}{$\sim$\+Time} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+\hyperlink{classTime}{Time} \hyperlink{classTime_ab71c472f35e89bdcbe7140e4ae180df4}{operator=} (const \hyperlink{classTime}{Time} \&a\+Time)
+\begin{DoxyCompactList}\small\item\em operator = overload \end{DoxyCompactList}\item 
+void \hyperlink{classTime_a8cb6f95a784663d705210a941bd9cce1}{set\+Time\+Type} (int type)
+\item 
+void \hyperlink{classTime_ab77d5f9f5fa8582d23a70d418ab6a182}{set\+Hour} (int hour)
+\item 
+void \hyperlink{classTime_a9c53c93d10be3785c85449186beb6b6a}{set\+Minute} (int minute)
+\item 
+void \hyperlink{classTime_a292511f90d87588d30bafbce157381a9}{set\+Day\+Time} (std\+::string daytime)
+\item 
+int \hyperlink{classTime_abf6028d768defb42e73d00ea0dd77fc6}{get\+Time\+Type} ()
+\item 
+int \hyperlink{classTime_ae0ce1e970c739d756282c95ebe458baf}{get\+Hour} ()
+\item 
+int \hyperlink{classTime_ad231692eb5f467f28322d75a31bde810}{get\+Minute} ()
+\item 
+std\+::string \hyperlink{classTime_ab3f43119f952338e691403d07c74d645}{get\+Day\+Time} ()
+\item 
+void \hyperlink{classTime_a261eacc60c1e3064226557c70a92272d}{set\+Time} ()
+\item 
+std\+::string \hyperlink{classTime_a96beef6d1d38c96e0f46a10d32b13cac}{get\+Time} ()
+\item 
+void \hyperlink{classTime_aae92e09d98511afb8a3520b64757d204}{add\+Attendees} (std\+::string attendee)
+\item 
+std\+::string \hyperlink{classTime_a0ac31cbf8f45f39c8082286afcbe5007}{get\+Attendee} (int i)
+\item 
+int \hyperlink{classTime_a62ae562ad5f717f14f452ad7dd47325c}{get\+Attendees\+Size} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{classTime_a2fdac16a4a9fc67f75aafb66a8622ff6}{m\+\_\+attendees}
+\begin{DoxyCompactList}\small\item\em vector to hold list of attendees per time slot \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classTime_ab36d723cbc54f228022881c08a6b7214}{m\+\_\+time}
+\begin{DoxyCompactList}\small\item\em holds time as string \end{DoxyCompactList}\item 
+int \hyperlink{classTime_ae1c5e59897218c6e143bf257472d4d0a}{m\+\_\+hour}
+\begin{DoxyCompactList}\small\item\em holds individual hour \end{DoxyCompactList}\item 
+int \hyperlink{classTime_a52a8fa26ca15a3e7052735a6431389e8}{m\+\_\+minute}
+\begin{DoxyCompactList}\small\item\em holds individual minute \end{DoxyCompactList}\item 
+int \hyperlink{classTime_a5c5860d4bbda747ff81a93269da9a36c}{m\+\_\+time\+Type}
+\begin{DoxyCompactList}\small\item\em holds individual timetype \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classTime_a0f59908673009a02433b68e70d0c8ccb}{m\+\_\+daytime}
+\begin{DoxyCompactList}\small\item\em holds daytime type \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Time@{Time}!Time@{Time}}
+\index{Time@{Time}!Time@{Time}}
+\subsubsection[{\texorpdfstring{Time()}{Time()}}]{\setlength{\rightskip}{0pt plus 5cm}Time\+::\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_a4245e409c7347d1d671858962c2ca3b5}{}\label{classTime_a4245e409c7347d1d671858962c2ca3b5}
+
+
+default constructor 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+initializes member variables to temporary values 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Time@{Time}!Time@{Time}}
+\index{Time@{Time}!Time@{Time}}
+\subsubsection[{\texorpdfstring{Time(const Time \&a\+Time)}{Time(const Time &aTime)}}]{\setlength{\rightskip}{0pt plus 5cm}Time\+::\+Time (
+\begin{DoxyParamCaption}
+\item[{const {\bf Time} \&}]{a\+Time}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_a07d87f73be5aed8318c0c5f5d46e8afa}{}\label{classTime_a07d87f73be5aed8318c0c5f5d46e8afa}
+
+
+copy constructor 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+initializes member variables to the values of the passed in \hyperlink{classTime}{Time} object 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Time@{Time}!````~Time@{$\sim$\+Time}}
+\index{````~Time@{$\sim$\+Time}!Time@{Time}}
+\subsubsection[{\texorpdfstring{$\sim$\+Time()}{~Time()}}]{\setlength{\rightskip}{0pt plus 5cm}Time\+::$\sim$\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_a1e92dbe963fa3cdd6bea207680f5f6d1}{}\label{classTime_a1e92dbe963fa3cdd6bea207680f5f6d1}
+
+
+destructor 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Time@{Time}!add\+Attendees@{add\+Attendees}}
+\index{add\+Attendees@{add\+Attendees}!Time@{Time}}
+\subsubsection[{\texorpdfstring{add\+Attendees(std\+::string attendee)}{addAttendees(std::string attendee)}}]{\setlength{\rightskip}{0pt plus 5cm}void Time\+::add\+Attendees (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{attendee}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_aae92e09d98511afb8a3520b64757d204}{}\label{classTime_aae92e09d98511afb8a3520b64757d204}
+\begin{DoxyPrecond}{Precondition}
+attendee is a valid string 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+pushes attendee to the back of m\+\_\+attendees 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none none 
+\end{DoxyReturn}
+\index{Time@{Time}!get\+Attendee@{get\+Attendee}}
+\index{get\+Attendee@{get\+Attendee}!Time@{Time}}
+\subsubsection[{\texorpdfstring{get\+Attendee(int i)}{getAttendee(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Time\+::get\+Attendee (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_a0ac31cbf8f45f39c8082286afcbe5007}{}\label{classTime_a0ac31cbf8f45f39c8082286afcbe5007}
+\begin{DoxyPrecond}{Precondition}
+i is a valid int 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+the attendee at m\+\_\+attendees\mbox{[}i\mbox{]} 
+\end{DoxyReturn}
+\index{Time@{Time}!get\+Attendees\+Size@{get\+Attendees\+Size}}
+\index{get\+Attendees\+Size@{get\+Attendees\+Size}!Time@{Time}}
+\subsubsection[{\texorpdfstring{get\+Attendees\+Size()}{getAttendeesSize()}}]{\setlength{\rightskip}{0pt plus 5cm}int Time\+::get\+Attendees\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_a62ae562ad5f717f14f452ad7dd47325c}{}\label{classTime_a62ae562ad5f717f14f452ad7dd47325c}
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+m\+\_\+attendees.\+size() 
+\end{DoxyReturn}
+\index{Time@{Time}!get\+Day\+Time@{get\+Day\+Time}}
+\index{get\+Day\+Time@{get\+Day\+Time}!Time@{Time}}
+\subsubsection[{\texorpdfstring{get\+Day\+Time()}{getDayTime()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Time\+::get\+Day\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_ab3f43119f952338e691403d07c74d645}{}\label{classTime_ab3f43119f952338e691403d07c74d645}
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+m\+\_\+daytime 
+\end{DoxyReturn}
+\index{Time@{Time}!get\+Hour@{get\+Hour}}
+\index{get\+Hour@{get\+Hour}!Time@{Time}}
+\subsubsection[{\texorpdfstring{get\+Hour()}{getHour()}}]{\setlength{\rightskip}{0pt plus 5cm}int Time\+::get\+Hour (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_ae0ce1e970c739d756282c95ebe458baf}{}\label{classTime_ae0ce1e970c739d756282c95ebe458baf}
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+m\+\_\+hour 
+\end{DoxyReturn}
+\index{Time@{Time}!get\+Minute@{get\+Minute}}
+\index{get\+Minute@{get\+Minute}!Time@{Time}}
+\subsubsection[{\texorpdfstring{get\+Minute()}{getMinute()}}]{\setlength{\rightskip}{0pt plus 5cm}int Time\+::get\+Minute (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_ad231692eb5f467f28322d75a31bde810}{}\label{classTime_ad231692eb5f467f28322d75a31bde810}
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+m\+\_\+minute 
+\end{DoxyReturn}
+\index{Time@{Time}!get\+Time@{get\+Time}}
+\index{get\+Time@{get\+Time}!Time@{Time}}
+\subsubsection[{\texorpdfstring{get\+Time()}{getTime()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Time\+::get\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_a96beef6d1d38c96e0f46a10d32b13cac}{}\label{classTime_a96beef6d1d38c96e0f46a10d32b13cac}
+\begin{DoxyPrecond}{Precondition}
+none  
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+m\+\_\+time 
+\end{DoxyReturn}
+\index{Time@{Time}!get\+Time\+Type@{get\+Time\+Type}}
+\index{get\+Time\+Type@{get\+Time\+Type}!Time@{Time}}
+\subsubsection[{\texorpdfstring{get\+Time\+Type()}{getTimeType()}}]{\setlength{\rightskip}{0pt plus 5cm}int Time\+::get\+Time\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_abf6028d768defb42e73d00ea0dd77fc6}{}\label{classTime_abf6028d768defb42e73d00ea0dd77fc6}
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+m\+\_\+time\+Type 
+\end{DoxyReturn}
+\index{Time@{Time}!operator=@{operator=}}
+\index{operator=@{operator=}!Time@{Time}}
+\subsubsection[{\texorpdfstring{operator=(const Time \&a\+Time)}{operator=(const Time &aTime)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Time} Time\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Time} \&}]{a\+Time}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_ab71c472f35e89bdcbe7140e4ae180df4}{}\label{classTime_ab71c472f35e89bdcbe7140e4ae180df4}
+
+
+operator = overload 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+initializes member variables of the \hyperlink{classTime}{Time} object on the lhs of the = to those of of the object on the rhs 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Time@{Time}!set\+Day\+Time@{set\+Day\+Time}}
+\index{set\+Day\+Time@{set\+Day\+Time}!Time@{Time}}
+\subsubsection[{\texorpdfstring{set\+Day\+Time(std\+::string daytime)}{setDayTime(std::string daytime)}}]{\setlength{\rightskip}{0pt plus 5cm}void Time\+::set\+Day\+Time (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{daytime}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_a292511f90d87588d30bafbce157381a9}{}\label{classTime_a292511f90d87588d30bafbce157381a9}
+\begin{DoxyPrecond}{Precondition}
+daytime is a valid string 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+sets m\+\_\+daytime to daytime 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Time@{Time}!set\+Hour@{set\+Hour}}
+\index{set\+Hour@{set\+Hour}!Time@{Time}}
+\subsubsection[{\texorpdfstring{set\+Hour(int hour)}{setHour(int hour)}}]{\setlength{\rightskip}{0pt plus 5cm}void Time\+::set\+Hour (
+\begin{DoxyParamCaption}
+\item[{int}]{hour}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_ab77d5f9f5fa8582d23a70d418ab6a182}{}\label{classTime_ab77d5f9f5fa8582d23a70d418ab6a182}
+\begin{DoxyPrecond}{Precondition}
+hour is a valid int 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+sets m\+\_\+hour to hour 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Time@{Time}!set\+Minute@{set\+Minute}}
+\index{set\+Minute@{set\+Minute}!Time@{Time}}
+\subsubsection[{\texorpdfstring{set\+Minute(int minute)}{setMinute(int minute)}}]{\setlength{\rightskip}{0pt plus 5cm}void Time\+::set\+Minute (
+\begin{DoxyParamCaption}
+\item[{int}]{minute}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_a9c53c93d10be3785c85449186beb6b6a}{}\label{classTime_a9c53c93d10be3785c85449186beb6b6a}
+\begin{DoxyPrecond}{Precondition}
+minute is a valid int 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+sets m\+\_\+minute to minute 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Time@{Time}!set\+Time@{set\+Time}}
+\index{set\+Time@{set\+Time}!Time@{Time}}
+\subsubsection[{\texorpdfstring{set\+Time()}{setTime()}}]{\setlength{\rightskip}{0pt plus 5cm}void Time\+::set\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_a261eacc60c1e3064226557c70a92272d}{}\label{classTime_a261eacc60c1e3064226557c70a92272d}
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+sets m\+\_\+time 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Time@{Time}!set\+Time\+Type@{set\+Time\+Type}}
+\index{set\+Time\+Type@{set\+Time\+Type}!Time@{Time}}
+\subsubsection[{\texorpdfstring{set\+Time\+Type(int type)}{setTimeType(int type)}}]{\setlength{\rightskip}{0pt plus 5cm}void Time\+::set\+Time\+Type (
+\begin{DoxyParamCaption}
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{classTime_a8cb6f95a784663d705210a941bd9cce1}{}\label{classTime_a8cb6f95a784663d705210a941bd9cce1}
+\begin{DoxyPrecond}{Precondition}
+type is a valid int 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+sets time type to either 12 or 24 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Time@{Time}!m\+\_\+attendees@{m\+\_\+attendees}}
+\index{m\+\_\+attendees@{m\+\_\+attendees}!Time@{Time}}
+\subsubsection[{\texorpdfstring{m\+\_\+attendees}{m_attendees}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$std\+::string$>$ Time\+::m\+\_\+attendees\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTime_a2fdac16a4a9fc67f75aafb66a8622ff6}{}\label{classTime_a2fdac16a4a9fc67f75aafb66a8622ff6}
+
+
+vector to hold list of attendees per time slot 
+
+\index{Time@{Time}!m\+\_\+daytime@{m\+\_\+daytime}}
+\index{m\+\_\+daytime@{m\+\_\+daytime}!Time@{Time}}
+\subsubsection[{\texorpdfstring{m\+\_\+daytime}{m_daytime}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Time\+::m\+\_\+daytime\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTime_a0f59908673009a02433b68e70d0c8ccb}{}\label{classTime_a0f59908673009a02433b68e70d0c8ccb}
+
+
+holds daytime type 
+
+\index{Time@{Time}!m\+\_\+hour@{m\+\_\+hour}}
+\index{m\+\_\+hour@{m\+\_\+hour}!Time@{Time}}
+\subsubsection[{\texorpdfstring{m\+\_\+hour}{m_hour}}]{\setlength{\rightskip}{0pt plus 5cm}int Time\+::m\+\_\+hour\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTime_ae1c5e59897218c6e143bf257472d4d0a}{}\label{classTime_ae1c5e59897218c6e143bf257472d4d0a}
+
+
+holds individual hour 
+
+\index{Time@{Time}!m\+\_\+minute@{m\+\_\+minute}}
+\index{m\+\_\+minute@{m\+\_\+minute}!Time@{Time}}
+\subsubsection[{\texorpdfstring{m\+\_\+minute}{m_minute}}]{\setlength{\rightskip}{0pt plus 5cm}int Time\+::m\+\_\+minute\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTime_a52a8fa26ca15a3e7052735a6431389e8}{}\label{classTime_a52a8fa26ca15a3e7052735a6431389e8}
+
+
+holds individual minute 
+
+\index{Time@{Time}!m\+\_\+time@{m\+\_\+time}}
+\index{m\+\_\+time@{m\+\_\+time}!Time@{Time}}
+\subsubsection[{\texorpdfstring{m\+\_\+time}{m_time}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Time\+::m\+\_\+time\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTime_ab36d723cbc54f228022881c08a6b7214}{}\label{classTime_ab36d723cbc54f228022881c08a6b7214}
+
+
+holds time as string 
+
+\index{Time@{Time}!m\+\_\+time\+Type@{m\+\_\+time\+Type}}
+\index{m\+\_\+time\+Type@{m\+\_\+time\+Type}!Time@{Time}}
+\subsubsection[{\texorpdfstring{m\+\_\+time\+Type}{m_timeType}}]{\setlength{\rightskip}{0pt plus 5cm}int Time\+::m\+\_\+time\+Type\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTime_a5c5860d4bbda747ff81a93269da9a36c}{}\label{classTime_a5c5860d4bbda747ff81a93269da9a36c}
+
+
+holds individual timetype 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+E\+C\+S448\+Project1/\hyperlink{Time_8h}{Time.\+h}\item 
+E\+E\+C\+S448\+Project1/\hyperlink{Time_8cpp}{Time.\+cpp}\end{DoxyCompactItemize}

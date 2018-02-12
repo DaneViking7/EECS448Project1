@@ -19,39 +19,39 @@ Date Due: 02/12/18
 class Executive
 {
 public:
-  /*constructor
+  /** @brief constructor
     @pre none
     @post sets up executive class, then calls on run()
-    @return none*/
+    @return none**/
   Executive();
 
-  /*destructor
+  /** @brief destructor
     @pre none
     @post none
-    @return none*/
+    @return none**/
   ~Executive();
 
-  /*
+  /**
     @pre none
     @post Allows for the creation of an event. Also allows the user to check the attendees of the events.
-    @return none*/
+    @return none**/
   void adminMode();
 
-  /*
+  /**
     @pre none
     @post Allows the user to see a list of events that have been created. If they select an event they can add their availability for each time slot.
-    @return none*/
+    @return none**/
   void availMode();
 
-  /*
+  /**
     @pre none
     @post
-    @return none*/
+    @return none**/
   void run();
 
 private:
 
-  LinkedList<Event>* events; //stores the events that have been created
+  LinkedList<Event>* events; //!< stores the events that have been created**/
 
 }; //end Executive.h
 #endif

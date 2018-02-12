@@ -1,0 +1,138 @@
+\hypertarget{classExecutive}{}\section{Executive Class Reference}
+\label{classExecutive}\index{Executive@{Executive}}
+
+
+{\ttfamily \#include $<$Executive.\+h$>$}
+
+
+
+Collaboration diagram for Executive\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classExecutive_ad870c1d741f1f313eb0c5a8336f8af6b}{Executive} ()
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\hyperlink{classExecutive_a4ce80c499f7640b1770ade77cf56d965}{$\sim$\+Executive} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+void \hyperlink{classExecutive_af662ff9fa35251d64e4fe7cdfea14baf}{admin\+Mode} ()
+\item 
+void \hyperlink{classExecutive_a27b17fc3144f186482f738d3d8a47f62}{avail\+Mode} ()
+\item 
+void \hyperlink{classExecutive_adef7cad3387e8fc79d92ffd418f45258}{run} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLinkedList}{Linked\+List}$<$ \hyperlink{classEvent}{Event} $>$ $\ast$ \hyperlink{classExecutive_a96140fc69daff9ed8535b7ab42fd9db3}{events}
+\begin{DoxyCompactList}\small\item\em stores the events that have been created$\ast$$\ast$/ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Executive@{Executive}!Executive@{Executive}}
+\index{Executive@{Executive}!Executive@{Executive}}
+\subsubsection[{\texorpdfstring{Executive()}{Executive()}}]{\setlength{\rightskip}{0pt plus 5cm}Executive\+::\+Executive (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classExecutive_ad870c1d741f1f313eb0c5a8336f8af6b}{}\label{classExecutive_ad870c1d741f1f313eb0c5a8336f8af6b}
+
+
+constructor 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+sets up executive class, then calls on \hyperlink{classExecutive_adef7cad3387e8fc79d92ffd418f45258}{run()} 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Executive@{Executive}!````~Executive@{$\sim$\+Executive}}
+\index{````~Executive@{$\sim$\+Executive}!Executive@{Executive}}
+\subsubsection[{\texorpdfstring{$\sim$\+Executive()}{~Executive()}}]{\setlength{\rightskip}{0pt plus 5cm}Executive\+::$\sim$\+Executive (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classExecutive_a4ce80c499f7640b1770ade77cf56d965}{}\label{classExecutive_a4ce80c499f7640b1770ade77cf56d965}
+
+
+destructor 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Executive@{Executive}!admin\+Mode@{admin\+Mode}}
+\index{admin\+Mode@{admin\+Mode}!Executive@{Executive}}
+\subsubsection[{\texorpdfstring{admin\+Mode()}{adminMode()}}]{\setlength{\rightskip}{0pt plus 5cm}void Executive\+::admin\+Mode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classExecutive_af662ff9fa35251d64e4fe7cdfea14baf}{}\label{classExecutive_af662ff9fa35251d64e4fe7cdfea14baf}
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Allows for the creation of an event. Also allows the user to check the attendees of the events. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Executive@{Executive}!avail\+Mode@{avail\+Mode}}
+\index{avail\+Mode@{avail\+Mode}!Executive@{Executive}}
+\subsubsection[{\texorpdfstring{avail\+Mode()}{availMode()}}]{\setlength{\rightskip}{0pt plus 5cm}void Executive\+::avail\+Mode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classExecutive_a27b17fc3144f186482f738d3d8a47f62}{}\label{classExecutive_a27b17fc3144f186482f738d3d8a47f62}
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Allows the user to see a list of events that have been created. If they select an event they can add their availability for each time slot. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Executive@{Executive}!run@{run}}
+\index{run@{run}!Executive@{Executive}}
+\subsubsection[{\texorpdfstring{run()}{run()}}]{\setlength{\rightskip}{0pt plus 5cm}void Executive\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classExecutive_adef7cad3387e8fc79d92ffd418f45258}{}\label{classExecutive_adef7cad3387e8fc79d92ffd418f45258}
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Executive@{Executive}!events@{events}}
+\index{events@{events}!Executive@{Executive}}
+\subsubsection[{\texorpdfstring{events}{events}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\+List}$<${\bf Event}$>$$\ast$ Executive\+::events\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classExecutive_a96140fc69daff9ed8535b7ab42fd9db3}{}\label{classExecutive_a96140fc69daff9ed8535b7ab42fd9db3}
+
+
+stores the events that have been created$\ast$$\ast$/ 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+E\+C\+S448\+Project1/\hyperlink{Executive_8h}{Executive.\+h}\item 
+E\+E\+C\+S448\+Project1/\hyperlink{Executive_8cpp}{Executive.\+cpp}\end{DoxyCompactItemize}

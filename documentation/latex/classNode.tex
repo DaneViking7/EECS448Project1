@@ -1,0 +1,172 @@
+\hypertarget{classNode}{}\section{Node$<$ Item\+Type $>$ Class Template Reference}
+\label{classNode}\index{Node$<$ Item\+Type $>$@{Node$<$ Item\+Type $>$}}
+
+
+{\ttfamily \#include $<$Node.\+h$>$}
+
+
+
+Collaboration diagram for Node$<$ Item\+Type $>$\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNode_a627e94f4fba0e73c546e0fb2a7266f36}{Node} ()
+\item 
+\hyperlink{classNode_a0288598fcb0244739ce95099c26250ae}{Node} (const Item\+Type \&an\+Item)
+\item 
+\hyperlink{classNode_adf98d3f9b7227622cb5a0fdd7e8f0b18}{Node} (const Item\+Type \&an\+Item, \hyperlink{classNode}{Node}$<$ Item\+Type $>$ $\ast$next\+Node\+Ptr)
+\item 
+void \hyperlink{classNode_ab41c851a9c886a3a968ce194a6624745}{set\+Info} (const Item\+Type \&in\+Info)
+\item 
+void \hyperlink{classNode_a17b5e5de78a3d60db6893eb3309cfd4a}{set\+Next} (\hyperlink{classNode}{Node}$<$ Item\+Type $>$ $\ast$nxt\+Ptr)
+\item 
+Item\+Type \hyperlink{classNode_a5bd33b99616c5eb7d3e714461a954328}{get\+Data} () const 
+\item 
+\hyperlink{classNode}{Node}$<$ Item\+Type $>$ $\ast$ \hyperlink{classNode_a44fbda8e8d17a37e8203434c2909ea07}{get\+Next} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Item\+Type \hyperlink{classNode_a89a461ece718482bb741ff41b8b49e5d}{info}
+\item 
+\hyperlink{classNode}{Node}$<$ Item\+Type $>$ $\ast$ \hyperlink{classNode_ad11288556b42a32b4f46ed955b7c31fd}{next}
+\begin{DoxyCompactList}\small\item\em holds the node\textquotesingle{}s information \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection[{\texorpdfstring{Node()}{Node()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type $>$ {\bf Node}$<$ Item\+Type $>$\+::{\bf Node} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNode_a627e94f4fba0e73c546e0fb2a7266f36}{}\label{classNode_a627e94f4fba0e73c546e0fb2a7266f36}
+\begin{DoxyPrecond}{Precondition}
+Call to the \hyperlink{classNode}{Node} constructor is made with no parameters. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+A \hyperlink{classNode}{Node} item is created with the next private variable pointing to a nullptr and the info variable set to empty. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection[{\texorpdfstring{Node(const Item\+Type \&an\+Item)}{Node(const ItemType &anItem)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type$>$ {\bf Node}$<$ Item\+Type $>$\+::{\bf Node} (
+\begin{DoxyParamCaption}
+\item[{const Item\+Type \&}]{an\+Item}
+\end{DoxyParamCaption}
+)}\hypertarget{classNode_a0288598fcb0244739ce95099c26250ae}{}\label{classNode_a0288598fcb0244739ce95099c26250ae}
+\begin{DoxyPrecond}{Precondition}
+Call to the \hyperlink{classNode}{Node} constructor is made with Item\+Type as a parameter. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+A \hyperlink{classNode}{Node} item is created with the next private variable pointing to a nullptr and the info variable set to an\+Item. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection[{\texorpdfstring{Node(const Item\+Type \&an\+Item, Node$<$ Item\+Type $>$ $\ast$next\+Node\+Ptr)}{Node(const ItemType &anItem, Node< ItemType > *nextNodePtr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type$>$ {\bf Node}$<$ Item\+Type $>$\+::{\bf Node} (
+\begin{DoxyParamCaption}
+\item[{const Item\+Type \&}]{an\+Item, }
+\item[{{\bf Node}$<$ Item\+Type $>$ $\ast$}]{next\+Node\+Ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{classNode_adf98d3f9b7227622cb5a0fdd7e8f0b18}{}\label{classNode_adf98d3f9b7227622cb5a0fdd7e8f0b18}
+\begin{DoxyPrecond}{Precondition}
+Call to the \hyperlink{classNode}{Node} constructor is made with an item of Item\+Type and a pointer to the next node as the parameters. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+A node item is created with the next private variable pointing to the provided pointer and the info variable set to an\+Item. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Node@{Node}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Node@{Node}}
+\subsubsection[{\texorpdfstring{get\+Data() const }{getData() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type $>$ Item\+Type {\bf Node}$<$ Item\+Type $>$\+::get\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classNode_a5bd33b99616c5eb7d3e714461a954328}{}\label{classNode_a5bd33b99616c5eb7d3e714461a954328}
+\begin{DoxyPrecond}{Precondition}
+Call to this method is made. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the value stored in the info private variable. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+Item\+Type info 
+\end{DoxyReturn}
+\index{Node@{Node}!get\+Next@{get\+Next}}
+\index{get\+Next@{get\+Next}!Node@{Node}}
+\subsubsection[{\texorpdfstring{get\+Next() const }{getNext() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type $>$ {\bf Node}$<$ Item\+Type $>$ $\ast$ {\bf Node}$<$ Item\+Type $>$\+::get\+Next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classNode_a44fbda8e8d17a37e8203434c2909ea07}{}\label{classNode_a44fbda8e8d17a37e8203434c2909ea07}
+\begin{DoxyPrecond}{Precondition}
+call to this method is made. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the value stored in the next private variable. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+Node$<$\+Item\+Type$>$$\ast$ next 
+\end{DoxyReturn}
+\index{Node@{Node}!set\+Info@{set\+Info}}
+\index{set\+Info@{set\+Info}!Node@{Node}}
+\subsubsection[{\texorpdfstring{set\+Info(const Item\+Type \&in\+Info)}{setInfo(const ItemType &inInfo)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type$>$ void {\bf Node}$<$ Item\+Type $>$\+::set\+Info (
+\begin{DoxyParamCaption}
+\item[{const Item\+Type \&}]{in\+Info}
+\end{DoxyParamCaption}
+)}\hypertarget{classNode_ab41c851a9c886a3a968ce194a6624745}{}\label{classNode_ab41c851a9c886a3a968ce194a6624745}
+\begin{DoxyPrecond}{Precondition}
+Call to this method is made and an Item\+Type is passed in as a parameter. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Sets the info private variable to in\+Info. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+\index{Node@{Node}!set\+Next@{set\+Next}}
+\index{set\+Next@{set\+Next}!Node@{Node}}
+\subsubsection[{\texorpdfstring{set\+Next(\+Node$<$ Item\+Type $>$ $\ast$nxt\+Ptr)}{setNext(Node< ItemType > *nxtPtr)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type$>$ void {\bf Node}$<$ Item\+Type $>$\+::set\+Next (
+\begin{DoxyParamCaption}
+\item[{{\bf Node}$<$ Item\+Type $>$ $\ast$}]{nxt\+Ptr}
+\end{DoxyParamCaption}
+)}\hypertarget{classNode_a17b5e5de78a3d60db6893eb3309cfd4a}{}\label{classNode_a17b5e5de78a3d60db6893eb3309cfd4a}
+\begin{DoxyPrecond}{Precondition}
+Call to this method is made and a pointer to another \hyperlink{classNode}{Node} object is passed in as a parameter. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Sets the next private variable to nxt\+Ptr. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Node@{Node}!info@{info}}
+\index{info@{info}!Node@{Node}}
+\subsubsection[{\texorpdfstring{info}{info}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type$>$ Item\+Type {\bf Node}$<$ Item\+Type $>$\+::info\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classNode_a89a461ece718482bb741ff41b8b49e5d}{}\label{classNode_a89a461ece718482bb741ff41b8b49e5d}
+\index{Node@{Node}!next@{next}}
+\index{next@{next}!Node@{Node}}
+\subsubsection[{\texorpdfstring{next}{next}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type$>$ {\bf Node}$<$Item\+Type$>$$\ast$ {\bf Node}$<$ Item\+Type $>$\+::next\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classNode_ad11288556b42a32b4f46ed955b7c31fd}{}\label{classNode_ad11288556b42a32b4f46ed955b7c31fd}
+
+
+holds the node\textquotesingle{}s information 
+
+points to next node 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+E\+C\+S448\+Project1/\hyperlink{Node_8h}{Node.\+h}\item 
+E\+E\+C\+S448\+Project1/\hyperlink{Node_8hpp}{Node.\+hpp}\end{DoxyCompactItemize}

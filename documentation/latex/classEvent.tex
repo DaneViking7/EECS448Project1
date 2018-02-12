@@ -1,0 +1,520 @@
+\hypertarget{classEvent}{}\section{Event Class Reference}
+\label{classEvent}\index{Event@{Event}}
+
+
+{\ttfamily \#include $<$Event.\+h$>$}
+
+
+
+Collaboration diagram for Event\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEvent_a5a40dd4708297f7031e29b39e039ae10}{Event} ()
+\begin{DoxyCompactList}\small\item\em constructor which takes no parameters \end{DoxyCompactList}\item 
+\hyperlink{classEvent_a489bf3013e87a5dddb1cfd027dd6856c}{Event} (std\+::string a\+Event\+Name, int a\+Day, int a\+Month, int a\+Year, std\+::string a\+Attendee\+Name, int a\+Hour, int a\+Minute, int a\+Time\+Type, std\+::string a\+Day\+Time)
+\begin{DoxyCompactList}\small\item\em constructor which takes an \hyperlink{classEvent}{Event} name, a day, a month, a year, an attendee name, an hour, a minute, a time type (12hr or 24 hr) and a day time (A\+M/\+PM) \end{DoxyCompactList}\item 
+\hyperlink{classEvent_a02962ae1f380b0805431b9642e29c156}{Event} (const \hyperlink{classEvent}{Event} \&a\+Event)
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\hyperlink{classEvent_a7704ec01ce91e673885792054214b3d2}{$\sim$\+Event} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+\hyperlink{classEvent}{Event} \hyperlink{classEvent_a5763ef967f6aba0542972aeb8537e34c}{operator=} (const \hyperlink{classEvent}{Event} \&a\+Event)
+\begin{DoxyCompactList}\small\item\em operator overload which allows assignment operator use between Events \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_a6131dc74cbd61a6426177ff9ee8b3aec}{change\+Event\+Name} (std\+::string a\+Event\+Name)
+\begin{DoxyCompactList}\small\item\em sets/changes the name of an \hyperlink{classEvent}{Event} \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_ac94285510b4e5a4fe7a89f6df20c34d8}{change\+Event\+Date} (int a\+Day, int a\+Month, int a\+Year)
+\begin{DoxyCompactList}\small\item\em sets/changes the date of an \hyperlink{classEvent}{Event} \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_a78d96d2a4051aa6892170fce36a9333f}{add\+Event\+Time\+\_\+\+Attendee} (int a\+Hour, int a\+Minute, int a\+Time\+Type, std\+::string a\+Day\+Time, std\+::string a\+Attendee\+Name)
+\begin{DoxyCompactList}\small\item\em adds a new time of an \hyperlink{classEvent}{Event} and adds an attendee to that time \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classEvent_adea2d0aae8fb9d4efd7ea4bebc8ceb24}{get\+Event\+Name} ()
+\begin{DoxyCompactList}\small\item\em gets the name of the \hyperlink{classEvent}{Event} \end{DoxyCompactList}\item 
+int \hyperlink{classEvent_aca9222d91f31df84d7abb12504d9df0e}{get\+Month} ()
+\begin{DoxyCompactList}\small\item\em gets the month of the \hyperlink{classEvent}{Event}, really needed for \hyperlink{classExecutive}{Executive} \end{DoxyCompactList}\item 
+int \hyperlink{classEvent_a6f103ed44e572e38a7b5617d65df8c49}{get\+Day} ()
+\begin{DoxyCompactList}\small\item\em gets the day of the \hyperlink{classEvent}{Event}, really needed for \hyperlink{classExecutive}{Executive} \end{DoxyCompactList}\item 
+int \hyperlink{classEvent_a513ec8ed5e392402b68bfa1e78bce4a4}{get\+Year} ()
+\begin{DoxyCompactList}\small\item\em gets the year of the \hyperlink{classEvent}{Event}, really needed for \hyperlink{classExecutive}{Executive} \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classEvent_a5e30fe7bbcfef00ae42616555282f456}{get\+Event\+Date} ()
+\begin{DoxyCompactList}\small\item\em gets the date of the \hyperlink{classEvent}{Event} \end{DoxyCompactList}\item 
+\hyperlink{classLinkedList}{Linked\+List}$<$ \hyperlink{classTime}{Time} $>$ $\ast$ \hyperlink{classEvent_a9b57d73cbaa0944c63af5ebbc0a36ee5}{get\+Event\+Times} ()
+\begin{DoxyCompactList}\small\item\em gets the time of the \hyperlink{classEvent}{Event} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classEvent_a3cdaa3ea67caaa086ba2efc3ab9e5ed8}{is\+Leap\+Year} ()
+\begin{DoxyCompactList}\small\item\em determines whether a given year is a leap year \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_a1e9866232eb5f246aecbb47a1ab39c86}{set\+Event\+Day} (int a\+Day)  throw (\+Precond\+Violated\+Excep)
+\begin{DoxyCompactList}\small\item\em checks to make sure the day is valid \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_ab1c2cc3102f3a9c0e68631ed43ddcfa7}{set\+Event\+Month} (int a\+Month)  throw (\+Precond\+Violated\+Excep)
+\begin{DoxyCompactList}\small\item\em checks to make sure the month is valid \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_a7459c077b250731b7bf02ea382a9fc99}{set\+Event\+Year} (int a\+Year)  throw (\+Precond\+Violated\+Excep)
+\begin{DoxyCompactList}\small\item\em checks to make sure the year is valid \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_acaab996ffd040f2bbfea8d9b96bfbe46}{set\+Event\+Date} ()
+\begin{DoxyCompactList}\small\item\em sets/changes the date of an \hyperlink{classEvent}{Event} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{classEvent_a7d545a7ff5a2e87bb503a80963c9c12e}{m\+Event\+Name}
+\begin{DoxyCompactList}\small\item\em The name of the \hyperlink{classEvent}{Event}. \end{DoxyCompactList}\item 
+int \hyperlink{classEvent_a605a47d2ab6c0a393d6ab94b82afe3f3}{m\+Day}
+\begin{DoxyCompactList}\small\item\em The day of the event. \end{DoxyCompactList}\item 
+int \hyperlink{classEvent_a1e481d4c0f234766f61e0ec4fc5170dd}{m\+Month}
+\begin{DoxyCompactList}\small\item\em The month of the event. \end{DoxyCompactList}\item 
+int \hyperlink{classEvent_ad633cc2ef4fb390c4fb59e835d46e09e}{m\+Year}
+\begin{DoxyCompactList}\small\item\em The year of the event. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classEvent_a41ce1327717a5e72513db37c15d4e18a}{m\+Date}
+\begin{DoxyCompactList}\small\item\em the full Date of the event in the form M\+M/\+D\+D/\+Y\+Y\+YY \end{DoxyCompactList}\item 
+\hyperlink{classLinkedList}{Linked\+List}$<$ \hyperlink{classTime}{Time} $>$ $\ast$ \hyperlink{classEvent_ab5e1ade6acf4c99f4cd1662484bf2e6f}{m\+Time\+List}
+\begin{DoxyCompactList}\small\item\em the list of the times plus attendees \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Event@{Event}!Event@{Event}}
+\index{Event@{Event}!Event@{Event}}
+\subsubsection[{\texorpdfstring{Event()}{Event()}}]{\setlength{\rightskip}{0pt plus 5cm}Event\+::\+Event (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classEvent_a5a40dd4708297f7031e29b39e039ae10}{}\label{classEvent_a5a40dd4708297f7031e29b39e039ae10}
+
+
+constructor which takes no parameters 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+creates a new event and sets all the member variables to blank values 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Event@{Event}!Event@{Event}}
+\index{Event@{Event}!Event@{Event}}
+\subsubsection[{\texorpdfstring{Event(std\+::string a\+Event\+Name, int a\+Day, int a\+Month, int a\+Year, std\+::string a\+Attendee\+Name, int a\+Hour, int a\+Minute, int a\+Time\+Type, std\+::string a\+Day\+Time)}{Event(std::string aEventName, int aDay, int aMonth, int aYear, std::string aAttendeeName, int aHour, int aMinute, int aTimeType, std::string aDayTime)}}]{\setlength{\rightskip}{0pt plus 5cm}Event\+::\+Event (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{a\+Event\+Name, }
+\item[{int}]{a\+Day, }
+\item[{int}]{a\+Month, }
+\item[{int}]{a\+Year, }
+\item[{std\+::string}]{a\+Attendee\+Name, }
+\item[{int}]{a\+Hour, }
+\item[{int}]{a\+Minute, }
+\item[{int}]{a\+Time\+Type, }
+\item[{std\+::string}]{a\+Day\+Time}
+\end{DoxyParamCaption}
+)}\hypertarget{classEvent_a489bf3013e87a5dddb1cfd027dd6856c}{}\label{classEvent_a489bf3013e87a5dddb1cfd027dd6856c}
+
+
+constructor which takes an \hyperlink{classEvent}{Event} name, a day, a month, a year, an attendee name, an hour, a minute, a time type (12hr or 24 hr) and a day time (A\+M/\+PM) 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+creates a new event and sets all the member variables to their respective parameters 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Event@{Event}!Event@{Event}}
+\index{Event@{Event}!Event@{Event}}
+\subsubsection[{\texorpdfstring{Event(const Event \&a\+Event)}{Event(const Event &aEvent)}}]{\setlength{\rightskip}{0pt plus 5cm}Event\+::\+Event (
+\begin{DoxyParamCaption}
+\item[{const {\bf Event} \&}]{a\+Event}
+\end{DoxyParamCaption}
+)}\hypertarget{classEvent_a02962ae1f380b0805431b9642e29c156}{}\label{classEvent_a02962ae1f380b0805431b9642e29c156}
+
+
+copy constructor 
+
+\begin{DoxyPrecond}{Precondition}
+Another event must exist 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+a copy of an \hyperlink{classEvent}{Event} has been made at construction time 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Event@{Event}!````~Event@{$\sim$\+Event}}
+\index{````~Event@{$\sim$\+Event}!Event@{Event}}
+\subsubsection[{\texorpdfstring{$\sim$\+Event()}{~Event()}}]{\setlength{\rightskip}{0pt plus 5cm}Event\+::$\sim$\+Event (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classEvent_a7704ec01ce91e673885792054214b3d2}{}\label{classEvent_a7704ec01ce91e673885792054214b3d2}
+
+
+destructor 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+cleans up all allocated heap memory 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Event@{Event}!add\+Event\+Time\+\_\+\+Attendee@{add\+Event\+Time\+\_\+\+Attendee}}
+\index{add\+Event\+Time\+\_\+\+Attendee@{add\+Event\+Time\+\_\+\+Attendee}!Event@{Event}}
+\subsubsection[{\texorpdfstring{add\+Event\+Time\+\_\+\+Attendee(int a\+Hour, int a\+Minute, int a\+Time\+Type, std\+::string a\+Day\+Time, std\+::string a\+Attendee\+Name)}{addEventTime_Attendee(int aHour, int aMinute, int aTimeType, std::string aDayTime, std::string aAttendeeName)}}]{\setlength{\rightskip}{0pt plus 5cm}void Event\+::add\+Event\+Time\+\_\+\+Attendee (
+\begin{DoxyParamCaption}
+\item[{int}]{a\+Hour, }
+\item[{int}]{a\+Minute, }
+\item[{int}]{a\+Time\+Type, }
+\item[{std\+::string}]{a\+Day\+Time, }
+\item[{std\+::string}]{a\+Attendee\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{classEvent_a78d96d2a4051aa6892170fce36a9333f}{}\label{classEvent_a78d96d2a4051aa6892170fce36a9333f}
+
+
+adds a new time of an \hyperlink{classEvent}{Event} and adds an attendee to that time 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+A new \hyperlink{classEvent}{Event}\textquotesingle{}s time has been created and an attendee has been added 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Event@{Event}!change\+Event\+Date@{change\+Event\+Date}}
+\index{change\+Event\+Date@{change\+Event\+Date}!Event@{Event}}
+\subsubsection[{\texorpdfstring{change\+Event\+Date(int a\+Day, int a\+Month, int a\+Year)}{changeEventDate(int aDay, int aMonth, int aYear)}}]{\setlength{\rightskip}{0pt plus 5cm}void Event\+::change\+Event\+Date (
+\begin{DoxyParamCaption}
+\item[{int}]{a\+Day, }
+\item[{int}]{a\+Month, }
+\item[{int}]{a\+Year}
+\end{DoxyParamCaption}
+)}\hypertarget{classEvent_ac94285510b4e5a4fe7a89f6df20c34d8}{}\label{classEvent_ac94285510b4e5a4fe7a89f6df20c34d8}
+
+
+sets/changes the date of an \hyperlink{classEvent}{Event} 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The \hyperlink{classEvent}{Event}\textquotesingle{}s date has been set/changed 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Event@{Event}!change\+Event\+Name@{change\+Event\+Name}}
+\index{change\+Event\+Name@{change\+Event\+Name}!Event@{Event}}
+\subsubsection[{\texorpdfstring{change\+Event\+Name(std\+::string a\+Event\+Name)}{changeEventName(std::string aEventName)}}]{\setlength{\rightskip}{0pt plus 5cm}void Event\+::change\+Event\+Name (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{a\+Event\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{classEvent_a6131dc74cbd61a6426177ff9ee8b3aec}{}\label{classEvent_a6131dc74cbd61a6426177ff9ee8b3aec}
+
+
+sets/changes the name of an \hyperlink{classEvent}{Event} 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The \hyperlink{classEvent}{Event}\textquotesingle{}s name has been set/changed 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Event@{Event}!get\+Day@{get\+Day}}
+\index{get\+Day@{get\+Day}!Event@{Event}}
+\subsubsection[{\texorpdfstring{get\+Day()}{getDay()}}]{\setlength{\rightskip}{0pt plus 5cm}int Event\+::get\+Day (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classEvent_a6f103ed44e572e38a7b5617d65df8c49}{}\label{classEvent_a6f103ed44e572e38a7b5617d65df8c49}
+
+
+gets the day of the \hyperlink{classEvent}{Event}, really needed for \hyperlink{classExecutive}{Executive} 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+gets the day of the \hyperlink{classEvent}{Event} 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+an int representing the day the \hyperlink{classEvent}{Event} takes place 
+\end{DoxyReturn}
+\index{Event@{Event}!get\+Event\+Date@{get\+Event\+Date}}
+\index{get\+Event\+Date@{get\+Event\+Date}!Event@{Event}}
+\subsubsection[{\texorpdfstring{get\+Event\+Date()}{getEventDate()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Event\+::get\+Event\+Date (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classEvent_a5e30fe7bbcfef00ae42616555282f456}{}\label{classEvent_a5e30fe7bbcfef00ae42616555282f456}
+
+
+gets the date of the \hyperlink{classEvent}{Event} 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+gets the date of the \hyperlink{classEvent}{Event} 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+a string representing the date of the \hyperlink{classEvent}{Event} 
+\end{DoxyReturn}
+\index{Event@{Event}!get\+Event\+Name@{get\+Event\+Name}}
+\index{get\+Event\+Name@{get\+Event\+Name}!Event@{Event}}
+\subsubsection[{\texorpdfstring{get\+Event\+Name()}{getEventName()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Event\+::get\+Event\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classEvent_adea2d0aae8fb9d4efd7ea4bebc8ceb24}{}\label{classEvent_adea2d0aae8fb9d4efd7ea4bebc8ceb24}
+
+
+gets the name of the \hyperlink{classEvent}{Event} 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+gets the name of the \hyperlink{classEvent}{Event} 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+a string representing the name of the \hyperlink{classEvent}{Event} 
+\end{DoxyReturn}
+\index{Event@{Event}!get\+Event\+Times@{get\+Event\+Times}}
+\index{get\+Event\+Times@{get\+Event\+Times}!Event@{Event}}
+\subsubsection[{\texorpdfstring{get\+Event\+Times()}{getEventTimes()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\+List}$<$ {\bf Time} $>$ $\ast$ Event\+::get\+Event\+Times (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classEvent_a9b57d73cbaa0944c63af5ebbc0a36ee5}{}\label{classEvent_a9b57d73cbaa0944c63af5ebbc0a36ee5}
+
+
+gets the time of the \hyperlink{classEvent}{Event} 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+gets the availability times of the \hyperlink{classEvent}{Event}, and subsequently all of the people who can attend at each time. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+a pointer to a \hyperlink{classLinkedList}{Linked\+List} with the availability times of the \hyperlink{classEvent}{Event} and the people who can attend at each time 
+\end{DoxyReturn}
+\index{Event@{Event}!get\+Month@{get\+Month}}
+\index{get\+Month@{get\+Month}!Event@{Event}}
+\subsubsection[{\texorpdfstring{get\+Month()}{getMonth()}}]{\setlength{\rightskip}{0pt plus 5cm}int Event\+::get\+Month (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classEvent_aca9222d91f31df84d7abb12504d9df0e}{}\label{classEvent_aca9222d91f31df84d7abb12504d9df0e}
+
+
+gets the month of the \hyperlink{classEvent}{Event}, really needed for \hyperlink{classExecutive}{Executive} 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+gets the month of the \hyperlink{classEvent}{Event} 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+an int representing the month the \hyperlink{classEvent}{Event} takes place 
+\end{DoxyReturn}
+\index{Event@{Event}!get\+Year@{get\+Year}}
+\index{get\+Year@{get\+Year}!Event@{Event}}
+\subsubsection[{\texorpdfstring{get\+Year()}{getYear()}}]{\setlength{\rightskip}{0pt plus 5cm}int Event\+::get\+Year (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classEvent_a513ec8ed5e392402b68bfa1e78bce4a4}{}\label{classEvent_a513ec8ed5e392402b68bfa1e78bce4a4}
+
+
+gets the year of the \hyperlink{classEvent}{Event}, really needed for \hyperlink{classExecutive}{Executive} 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+gets the year of the \hyperlink{classEvent}{Event} 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+an int representing the year the \hyperlink{classEvent}{Event} takes place 
+\end{DoxyReturn}
+\index{Event@{Event}!is\+Leap\+Year@{is\+Leap\+Year}}
+\index{is\+Leap\+Year@{is\+Leap\+Year}!Event@{Event}}
+\subsubsection[{\texorpdfstring{is\+Leap\+Year()}{isLeapYear()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Event\+::is\+Leap\+Year (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classEvent_a3cdaa3ea67caaa086ba2efc3ab9e5ed8}{}\label{classEvent_a3cdaa3ea67caaa086ba2efc3ab9e5ed8}
+
+
+determines whether a given year is a leap year 
+
+\begin{DoxyPrecond}{Precondition}
+the year must be a valid, 4-\/digit year 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+tells whether a given year is a leap year 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+a bool, true if the year is a leap year, false otherwise 
+\end{DoxyReturn}
+\index{Event@{Event}!operator=@{operator=}}
+\index{operator=@{operator=}!Event@{Event}}
+\subsubsection[{\texorpdfstring{operator=(const Event \&a\+Event)}{operator=(const Event &aEvent)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event} Event\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Event} \&}]{a\+Event}
+\end{DoxyParamCaption}
+)}\hypertarget{classEvent_a5763ef967f6aba0542972aeb8537e34c}{}\label{classEvent_a5763ef967f6aba0542972aeb8537e34c}
+
+
+operator overload which allows assignment operator use between Events 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+two Events are equal to each other 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+an \hyperlink{classEvent}{Event} which is a duplicate of an already existing \hyperlink{classEvent}{Event} 
+\end{DoxyReturn}
+\index{Event@{Event}!set\+Event\+Date@{set\+Event\+Date}}
+\index{set\+Event\+Date@{set\+Event\+Date}!Event@{Event}}
+\subsubsection[{\texorpdfstring{set\+Event\+Date()}{setEventDate()}}]{\setlength{\rightskip}{0pt plus 5cm}void Event\+::set\+Event\+Date (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classEvent_acaab996ffd040f2bbfea8d9b96bfbe46}{}\label{classEvent_acaab996ffd040f2bbfea8d9b96bfbe46}
+
+
+sets/changes the date of an \hyperlink{classEvent}{Event} 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The \hyperlink{classEvent}{Event}\textquotesingle{}s date has been set/changed 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+string representing the date in the form M\+M/\+D\+D/\+Y\+Y\+YY 
+\end{DoxyReturn}
+\index{Event@{Event}!set\+Event\+Day@{set\+Event\+Day}}
+\index{set\+Event\+Day@{set\+Event\+Day}!Event@{Event}}
+\subsubsection[{\texorpdfstring{set\+Event\+Day(int a\+Day)}{setEventDay(int aDay)}}]{\setlength{\rightskip}{0pt plus 5cm}void Event\+::set\+Event\+Day (
+\begin{DoxyParamCaption}
+\item[{int}]{a\+Day}
+\end{DoxyParamCaption}
+) throw  {\bf Precond\+Violated\+Excep}) \hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classEvent_a1e9866232eb5f246aecbb47a1ab39c86}{}\label{classEvent_a1e9866232eb5f246aecbb47a1ab39c86}
+
+
+checks to make sure the day is valid 
+
+\begin{DoxyPrecond}{Precondition}
+I\+M\+P\+O\+R\+T\+A\+NT\+: the \hyperlink{classEvent}{Event} month and year must be already set 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The \hyperlink{classEvent}{Event}\textquotesingle{}s day has been set/changed 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Event@{Event}!set\+Event\+Month@{set\+Event\+Month}}
+\index{set\+Event\+Month@{set\+Event\+Month}!Event@{Event}}
+\subsubsection[{\texorpdfstring{set\+Event\+Month(int a\+Month)}{setEventMonth(int aMonth)}}]{\setlength{\rightskip}{0pt plus 5cm}void Event\+::set\+Event\+Month (
+\begin{DoxyParamCaption}
+\item[{int}]{a\+Month}
+\end{DoxyParamCaption}
+) throw  {\bf Precond\+Violated\+Excep}) \hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classEvent_ab1c2cc3102f3a9c0e68631ed43ddcfa7}{}\label{classEvent_ab1c2cc3102f3a9c0e68631ed43ddcfa7}
+
+
+checks to make sure the month is valid 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The \hyperlink{classEvent}{Event}\textquotesingle{}s month has been set/changed 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Event@{Event}!set\+Event\+Year@{set\+Event\+Year}}
+\index{set\+Event\+Year@{set\+Event\+Year}!Event@{Event}}
+\subsubsection[{\texorpdfstring{set\+Event\+Year(int a\+Year)}{setEventYear(int aYear)}}]{\setlength{\rightskip}{0pt plus 5cm}void Event\+::set\+Event\+Year (
+\begin{DoxyParamCaption}
+\item[{int}]{a\+Year}
+\end{DoxyParamCaption}
+) throw  {\bf Precond\+Violated\+Excep}) \hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classEvent_a7459c077b250731b7bf02ea382a9fc99}{}\label{classEvent_a7459c077b250731b7bf02ea382a9fc99}
+
+
+checks to make sure the year is valid 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The \hyperlink{classEvent}{Event}\textquotesingle{}s year has been set/changed 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Event@{Event}!m\+Date@{m\+Date}}
+\index{m\+Date@{m\+Date}!Event@{Event}}
+\subsubsection[{\texorpdfstring{m\+Date}{mDate}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Event\+::m\+Date\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classEvent_a41ce1327717a5e72513db37c15d4e18a}{}\label{classEvent_a41ce1327717a5e72513db37c15d4e18a}
+
+
+the full Date of the event in the form M\+M/\+D\+D/\+Y\+Y\+YY 
+
+\index{Event@{Event}!m\+Day@{m\+Day}}
+\index{m\+Day@{m\+Day}!Event@{Event}}
+\subsubsection[{\texorpdfstring{m\+Day}{mDay}}]{\setlength{\rightskip}{0pt plus 5cm}int Event\+::m\+Day\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classEvent_a605a47d2ab6c0a393d6ab94b82afe3f3}{}\label{classEvent_a605a47d2ab6c0a393d6ab94b82afe3f3}
+
+
+The day of the event. 
+
+\index{Event@{Event}!m\+Event\+Name@{m\+Event\+Name}}
+\index{m\+Event\+Name@{m\+Event\+Name}!Event@{Event}}
+\subsubsection[{\texorpdfstring{m\+Event\+Name}{mEventName}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Event\+::m\+Event\+Name\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classEvent_a7d545a7ff5a2e87bb503a80963c9c12e}{}\label{classEvent_a7d545a7ff5a2e87bb503a80963c9c12e}
+
+
+The name of the \hyperlink{classEvent}{Event}. 
+
+\index{Event@{Event}!m\+Month@{m\+Month}}
+\index{m\+Month@{m\+Month}!Event@{Event}}
+\subsubsection[{\texorpdfstring{m\+Month}{mMonth}}]{\setlength{\rightskip}{0pt plus 5cm}int Event\+::m\+Month\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classEvent_a1e481d4c0f234766f61e0ec4fc5170dd}{}\label{classEvent_a1e481d4c0f234766f61e0ec4fc5170dd}
+
+
+The month of the event. 
+
+\index{Event@{Event}!m\+Time\+List@{m\+Time\+List}}
+\index{m\+Time\+List@{m\+Time\+List}!Event@{Event}}
+\subsubsection[{\texorpdfstring{m\+Time\+List}{mTimeList}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\+List}$<${\bf Time}$>$$\ast$ Event\+::m\+Time\+List\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classEvent_ab5e1ade6acf4c99f4cd1662484bf2e6f}{}\label{classEvent_ab5e1ade6acf4c99f4cd1662484bf2e6f}
+
+
+the list of the times plus attendees 
+
+\index{Event@{Event}!m\+Year@{m\+Year}}
+\index{m\+Year@{m\+Year}!Event@{Event}}
+\subsubsection[{\texorpdfstring{m\+Year}{mYear}}]{\setlength{\rightskip}{0pt plus 5cm}int Event\+::m\+Year\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classEvent_ad633cc2ef4fb390c4fb59e835d46e09e}{}\label{classEvent_ad633cc2ef4fb390c4fb59e835d46e09e}
+
+
+The year of the event. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+E\+C\+S448\+Project1/\hyperlink{Event_8h}{Event.\+h}\item 
+E\+E\+C\+S448\+Project1/\hyperlink{Event_8cpp}{Event.\+cpp}\end{DoxyCompactItemize}

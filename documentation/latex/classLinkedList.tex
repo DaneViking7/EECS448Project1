@@ -1,0 +1,266 @@
+\hypertarget{classLinkedList}{}\section{Linked\+List$<$ Item\+Type $>$ Class Template Reference}
+\label{classLinkedList}\index{Linked\+List$<$ Item\+Type $>$@{Linked\+List$<$ Item\+Type $>$}}
+
+
+{\ttfamily \#include $<$Linked\+List.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLinkedList_adf8d8164e06b6d358a36df7e53e814ee}{Linked\+List} ()
+\item 
+\hyperlink{classLinkedList_a6f1443c6120352f1f5b6bd3c0d95e41e}{Linked\+List} (const \hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$ \&a\+List)
+\item 
+\hyperlink{classLinkedList_a66aee17d756fe0e002375897383c180b}{$\sim$\+Linked\+List} ()
+\item 
+bool \hyperlink{classLinkedList_adb17aed0ceacbbe1f247d235f491f0d5}{is\+Empty} () const 
+\item 
+int \hyperlink{classLinkedList_adae55d6b79235c816cb9e05027fd2e7a}{get\+Length} () const 
+\item 
+void \hyperlink{classLinkedList_ad5b788484a27148957dd32c1ed3dba86}{insert} (int new\+Position, const Item\+Type \&new\+Entry)  throw (\+Precond\+Violated\+Excep)
+\item 
+void \hyperlink{classLinkedList_a59c21f65c248c285af80fe3dd2592f71}{remove} (int position)  throw (\+Precond\+Violated\+Excep)
+\item 
+void \hyperlink{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{clear} ()
+\item 
+Item\+Type \hyperlink{classLinkedList_ada95ab2c24c1fd8f04e3e4da6fd13179}{get\+Entry} (int position)  throw (\+Precond\+Violated\+Excep)
+\item 
+void \hyperlink{classLinkedList_a20e0c3c3929e857901e2dc4ccc29a0bb}{set\+Entry} (int position, const Item\+Type \&new\+Entry)  throw (\+Precond\+Violated\+Excep)
+\item 
+\hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$ \& \hyperlink{classLinkedList_ae11a4490ca20f004dafc75179bc50db4}{operator=} (\hyperlink{classLinkedList}{Linked\+List}$<$ Item\+Type $>$ const \&rhs)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNode}{Node}$<$ Item\+Type $>$ $\ast$ \hyperlink{classLinkedList_aa6c640ac15f70a1e08ba92dc060e4a0e}{get\+Node\+At} (int position) const 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNode}{Node}$<$ Item\+Type $>$ $\ast$ \hyperlink{classLinkedList_ae59caadbc6814867c20aa78f1bc9a566}{head\+Ptr}
+\begin{DoxyCompactList}\small\item\em Pointer to first node in the chain, (contains the first entry in the list) \end{DoxyCompactList}\item 
+int \hyperlink{classLinkedList_a964b92cf1253774e9e35f331d5fb3490}{item\+Count}
+\begin{DoxyCompactList}\small\item\em Current count of list items. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Linked\+List@{Linked\+List}!Linked\+List@{Linked\+List}}
+\index{Linked\+List@{Linked\+List}!Linked\+List@{Linked\+List}}
+\subsubsection[{\texorpdfstring{Linked\+List()}{LinkedList()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type $>$ {\bf Linked\+List}$<$ Item\+Type $>$\+::{\bf Linked\+List} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classLinkedList_adf8d8164e06b6d358a36df7e53e814ee}{}\label{classLinkedList_adf8d8164e06b6d358a36df7e53e814ee}
+\begin{DoxyPrecond}{Precondition}
+A call to the constructor for this object is made with no parameters. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Creates a \hyperlink{classLinkedList}{Linked\+List} item with item\+Count = 0 and headptr pointing to a nullptr. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+\index{Linked\+List@{Linked\+List}!Linked\+List@{Linked\+List}}
+\index{Linked\+List@{Linked\+List}!Linked\+List@{Linked\+List}}
+\subsubsection[{\texorpdfstring{Linked\+List(const Linked\+List$<$ Item\+Type $>$ \&a\+List)}{LinkedList(const LinkedList< ItemType > &aList)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type$>$ {\bf Linked\+List}$<$ Item\+Type $>$\+::{\bf Linked\+List} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linked\+List}$<$ Item\+Type $>$ \&}]{a\+List}
+\end{DoxyParamCaption}
+)}\hypertarget{classLinkedList_a6f1443c6120352f1f5b6bd3c0d95e41e}{}\label{classLinkedList_a6f1443c6120352f1f5b6bd3c0d95e41e}
+\begin{DoxyPrecond}{Precondition}
+A call to the constructor for this object is made with another \hyperlink{classLinkedList}{Linked\+List} passed in as the parameters. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Creates a \hyperlink{classLinkedList}{Linked\+List} item that is a copy of the \hyperlink{classLinkedList}{Linked\+List} passed in as a parameter. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+\index{Linked\+List@{Linked\+List}!````~Linked\+List@{$\sim$\+Linked\+List}}
+\index{````~Linked\+List@{$\sim$\+Linked\+List}!Linked\+List@{Linked\+List}}
+\subsubsection[{\texorpdfstring{$\sim$\+Linked\+List()}{~LinkedList()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type $>$ {\bf Linked\+List}$<$ Item\+Type $>$\+::$\sim${\bf Linked\+List} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classLinkedList_a66aee17d756fe0e002375897383c180b}{}\label{classLinkedList_a66aee17d756fe0e002375897383c180b}
+\begin{DoxyPrecond}{Precondition}
+The end of the program is reached. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Deletes all of the nodes in the list. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Linked\+List@{Linked\+List}!clear@{clear}}
+\index{clear@{clear}!Linked\+List@{Linked\+List}}
+\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type $>$ void {\bf Linked\+List}$<$ Item\+Type $>$\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}{}\label{classLinkedList_a7d1d9cf83eef67b6c4d700a3cc5970e1}
+\begin{DoxyPrecond}{Precondition}
+A call to this method is made. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Removes every \hyperlink{classNode}{Node} from the \hyperlink{classLinkedList}{Linked\+List}. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+\index{Linked\+List@{Linked\+List}!get\+Entry@{get\+Entry}}
+\index{get\+Entry@{get\+Entry}!Linked\+List@{Linked\+List}}
+\subsubsection[{\texorpdfstring{get\+Entry(int position)}{getEntry(int position)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type $>$ Item\+Type {\bf Linked\+List}$<$ Item\+Type $>$\+::get\+Entry (
+\begin{DoxyParamCaption}
+\item[{int}]{position}
+\end{DoxyParamCaption}
+) throw  {\bf Precond\+Violated\+Excep}) }\hypertarget{classLinkedList_ada95ab2c24c1fd8f04e3e4da6fd13179}{}\label{classLinkedList_ada95ab2c24c1fd8f04e3e4da6fd13179}
+\begin{DoxyPrecond}{Precondition}
+A call to this method is made with the position of the desired \hyperlink{classNode}{Node} passed in as parameters. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The info stored in the \hyperlink{classNode}{Node} at the given position is returned. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+The info stored in the \hyperlink{classNode}{Node} at the given position 
+\end{DoxyReturn}
+\index{Linked\+List@{Linked\+List}!get\+Length@{get\+Length}}
+\index{get\+Length@{get\+Length}!Linked\+List@{Linked\+List}}
+\subsubsection[{\texorpdfstring{get\+Length() const }{getLength() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type $>$ int {\bf Linked\+List}$<$ Item\+Type $>$\+::get\+Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classLinkedList_adae55d6b79235c816cb9e05027fd2e7a}{}\label{classLinkedList_adae55d6b79235c816cb9e05027fd2e7a}
+\begin{DoxyPrecond}{Precondition}
+A call to this method is made. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the value stored in the item\+Count private variable 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+int item\+Count 
+\end{DoxyReturn}
+\index{Linked\+List@{Linked\+List}!get\+Node\+At@{get\+Node\+At}}
+\index{get\+Node\+At@{get\+Node\+At}!Linked\+List@{Linked\+List}}
+\subsubsection[{\texorpdfstring{get\+Node\+At(int position) const }{getNodeAt(int position) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type $>$ {\bf Node}$<$ Item\+Type $>$ $\ast$ {\bf Linked\+List}$<$ Item\+Type $>$\+::get\+Node\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{position}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classLinkedList_aa6c640ac15f70a1e08ba92dc060e4a0e}{}\label{classLinkedList_aa6c640ac15f70a1e08ba92dc060e4a0e}
+\begin{DoxyPrecond}{Precondition}
+Position is the number of the desired node; position $>$= 1 and position $<$= item\+Count 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The node is found and a pointer to it is returned. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+A pointer to the node at the given position. 
+\end{DoxyReturn}
+\index{Linked\+List@{Linked\+List}!insert@{insert}}
+\index{insert@{insert}!Linked\+List@{Linked\+List}}
+\subsubsection[{\texorpdfstring{insert(int new\+Position, const Item\+Type \&new\+Entry)}{insert(int newPosition, const ItemType &newEntry)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type$>$ void {\bf Linked\+List}$<$ Item\+Type $>$\+::insert (
+\begin{DoxyParamCaption}
+\item[{int}]{new\+Position, }
+\item[{const Item\+Type \&}]{new\+Entry}
+\end{DoxyParamCaption}
+) throw  {\bf Precond\+Violated\+Excep}) }\hypertarget{classLinkedList_ad5b788484a27148957dd32c1ed3dba86}{}\label{classLinkedList_ad5b788484a27148957dd32c1ed3dba86}
+\begin{DoxyPrecond}{Precondition}
+A call to this method is made and the position of the new \hyperlink{classNode}{Node} and value the new \hyperlink{classNode}{Node} will contain are passed in as parameters. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+A new \hyperlink{classNode}{Node} is created for the \hyperlink{classLinkedList}{Linked\+List} that contains new\+Entry as the info value. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+\index{Linked\+List@{Linked\+List}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Linked\+List@{Linked\+List}}
+\subsubsection[{\texorpdfstring{is\+Empty() const }{isEmpty() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type $>$ bool {\bf Linked\+List}$<$ Item\+Type $>$\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classLinkedList_adb17aed0ceacbbe1f247d235f491f0d5}{}\label{classLinkedList_adb17aed0ceacbbe1f247d235f491f0d5}
+\begin{DoxyPrecond}{Precondition}
+A call to this method is made. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+true is returned if the \hyperlink{classLinkedList}{Linked\+List} item is empty and false if it is not 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true if the \hyperlink{classLinkedList}{Linked\+List} item is empty and false if it is not 
+\end{DoxyReturn}
+\index{Linked\+List@{Linked\+List}!operator=@{operator=}}
+\index{operator=@{operator=}!Linked\+List@{Linked\+List}}
+\subsubsection[{\texorpdfstring{operator=(\+Linked\+List$<$ Item\+Type $>$ const \&rhs)}{operator=(LinkedList< ItemType > const &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type$>$ {\bf Linked\+List}$<$ Item\+Type $>$ \& {\bf Linked\+List}$<$ Item\+Type $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+List}$<$ Item\+Type $>$ const \&}]{rhs}
+\end{DoxyParamCaption}
+)}\hypertarget{classLinkedList_ae11a4490ca20f004dafc75179bc50db4}{}\label{classLinkedList_ae11a4490ca20f004dafc75179bc50db4}
+\begin{DoxyPrecond}{Precondition}
+The = operater is used to instantiate a \hyperlink{classLinkedList}{Linked\+List} object. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The \hyperlink{classLinkedList}{Linked\+List} object is being set equal to the \hyperlink{classLinkedList}{Linked\+List} on the right hand side of the = operator. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+The \hyperlink{classLinkedList}{Linked\+List} object on the left hand side of the = operator. 
+\end{DoxyReturn}
+\index{Linked\+List@{Linked\+List}!remove@{remove}}
+\index{remove@{remove}!Linked\+List@{Linked\+List}}
+\subsubsection[{\texorpdfstring{remove(int position)}{remove(int position)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type $>$ void {\bf Linked\+List}$<$ Item\+Type $>$\+::remove (
+\begin{DoxyParamCaption}
+\item[{int}]{position}
+\end{DoxyParamCaption}
+) throw  {\bf Precond\+Violated\+Excep}) }\hypertarget{classLinkedList_a59c21f65c248c285af80fe3dd2592f71}{}\label{classLinkedList_a59c21f65c248c285af80fe3dd2592f71}
+\begin{DoxyPrecond}{Precondition}
+A call to this method is made and the position of the \hyperlink{classNode}{Node} to be removed is passed in as parameters. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Removes the node at the given position from the \hyperlink{classLinkedList}{Linked\+List}. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+\index{Linked\+List@{Linked\+List}!set\+Entry@{set\+Entry}}
+\index{set\+Entry@{set\+Entry}!Linked\+List@{Linked\+List}}
+\subsubsection[{\texorpdfstring{set\+Entry(int position, const Item\+Type \&new\+Entry)}{setEntry(int position, const ItemType &newEntry)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type$>$ void {\bf Linked\+List}$<$ Item\+Type $>$\+::set\+Entry (
+\begin{DoxyParamCaption}
+\item[{int}]{position, }
+\item[{const Item\+Type \&}]{new\+Entry}
+\end{DoxyParamCaption}
+) throw  {\bf Precond\+Violated\+Excep}) }\hypertarget{classLinkedList_a20e0c3c3929e857901e2dc4ccc29a0bb}{}\label{classLinkedList_a20e0c3c3929e857901e2dc4ccc29a0bb}
+\begin{DoxyPrecond}{Precondition}
+A call to this method is made with the position of the desired \hyperlink{classNode}{Node} and the new information to be stored in the \hyperlink{classNode}{Node} passed in as parameters. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The info variable for the \hyperlink{classNode}{Node} at the given position is set to new\+Entry. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Linked\+List@{Linked\+List}!head\+Ptr@{head\+Ptr}}
+\index{head\+Ptr@{head\+Ptr}!Linked\+List@{Linked\+List}}
+\subsubsection[{\texorpdfstring{head\+Ptr}{headPtr}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type$>$ {\bf Node}$<$Item\+Type$>$$\ast$ {\bf Linked\+List}$<$ Item\+Type $>$\+::head\+Ptr\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classLinkedList_ae59caadbc6814867c20aa78f1bc9a566}{}\label{classLinkedList_ae59caadbc6814867c20aa78f1bc9a566}
+
+
+Pointer to first node in the chain, (contains the first entry in the list) 
+
+\index{Linked\+List@{Linked\+List}!item\+Count@{item\+Count}}
+\index{item\+Count@{item\+Count}!Linked\+List@{Linked\+List}}
+\subsubsection[{\texorpdfstring{item\+Count}{itemCount}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Item\+Type$>$ int {\bf Linked\+List}$<$ Item\+Type $>$\+::item\+Count\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classLinkedList_a964b92cf1253774e9e35f331d5fb3490}{}\label{classLinkedList_a964b92cf1253774e9e35f331d5fb3490}
+
+
+Current count of list items. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+E\+C\+S448\+Project1/\hyperlink{LinkedList_8h}{Linked\+List.\+h}\item 
+E\+E\+C\+S448\+Project1/\hyperlink{LinkedList_8hpp}{Linked\+List.\+hpp}\end{DoxyCompactItemize}
