@@ -89,6 +89,63 @@ Executive::~Executive()
 
 }
 
+void Executive::availMode()
+{
+	int size = events->getLength();
+	string user;
+	cout<<"Enter your name: ";
+	cin>>user;
+	cout<<"\n";
+	try
+	{
+		for(int i = 1; i <= size; i++)
+		{
+			Event temp = events->getEntry(i);
+			cout<<"Event "<<(i)<<": "<<temp.getEventName()<<", "<<temp.getEventDate()<<endl;
+		}
+		int choice;
+		while(choice != 0)
+		{
+			cout<<"\nEnter an event number to indicate availability or enter 0 to exit: ";
+			cin>>choice;
+			while(cin.fail() || choice < 0 || choice > size)
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout<<"Enter a valid option: ";
+				cin>>choice;
+			}
+			if(choice != 0)
+			{
+				cout<<"\n";
+				LinkedList<Time>* times = events->getEntry(choice).getEventTimes();
+				for(int j = 1; j <= times->getLength(); j++)
+				{
+					char att;
+					cout<<"Can you attend the event at "<<times->getEntry(j).getTime()<<" (y/n): ";
+					cin>>att;
+					while(cin.fail() || (att != y && att != n))
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout<<"Enter a valid option: ";
+						cin>>att;
+					}
+					if(att == y)
+					{
+						events->getEntry(choice).addEventTime_Attendee(times->getEntry(j).getHour(), times->getEntry(j).getMinute(), times->getEntry(j).getTimeType(), times->getEntry(j).getDayTime(), user);
+					}
+				}
+				cout<<"\n";
+			}
+		}
+	}
+	catch(PrecondViolatedExcep pve)
+	{
+		cerr<<pve.what()<<"\n";
+	}
+}
+
 void Executive::run()
 {
 

@@ -31,13 +31,19 @@ public:
 
   /*
     @pre none
+    @post Allows the user to see a list of events that have been created. If they select an event they can add their availability for each time slot.
+    @return none*/
+  void availMode();
+
+  /*
+    @pre none
     @post
     @return none*/
   void run();
 
 private:
-  /*the file reader*/
-  std::ifstream inFile;
+
+  LinkedList<Event>* events; //stores the events that have been created
 
 }; //end Executive.h
 #endif
