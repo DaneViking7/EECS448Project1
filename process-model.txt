@@ -1,0 +1,9 @@
+We think that the incremental model was most appropriate for this project.
+We think this because the project had stable requirements and they were completely
+understood at the beginning of the project. We also completed our project in
+increments according to the model; we accomplished the core of the project first
+by communicating and planning, then coding and constructing, and then repeated the
+process to implement the remaining features and functions that were needed once
+the first increment was completed. With each of these increments, we worked to
+continuously integrate the previous increments with the new ones to finish the
+project requirements.
