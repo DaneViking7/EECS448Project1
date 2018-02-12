@@ -85,12 +85,12 @@ void Executive::adminMode()
 	cout<<"Enter your name: ";
 	cin.ignore();
 	getline(cin, user);
-	cout<<"\n";
 	try
 	{
 		int choice = -2;
 		while(choice != 0)
 		{
+			cout<<"========================================================================\n";
 			int size = events->getLength();
 			if(size == 0)
 				cout<<"No events currently.\n";
@@ -99,7 +99,8 @@ void Executive::adminMode()
 				Event temp = events->getEntry(i);
 				cout<<"Event "<<(i)<<": "<<temp.getEventName()<<", "<<temp.getEventDate()<<endl;
 			}
-			cout<<"\nEnter an event number to check its status, -1 to add an event, or 0 to exit: ";
+			cout<<"========================================================================\n";
+			cout<<"Enter an event number to check its status, -1 to add an event, or 0 to exit: ";
 			cin>>choice;
 			while(cin.fail() || choice < -1 || choice > size)
 			{
@@ -115,10 +116,10 @@ void Executive::adminMode()
 				for(int j = 1; j <= times->getLength(); j++)
 				{
 					int attSize = times->getEntry(j).getAttendeesSize();
-					cout<<"\n"<<times->getEntry(j).getTime();
+					cout<<"\n\t"<<times->getEntry(j).getTime();
 					for(int k = 0; k < attSize; k++)
 					{
-						cout<<"\n\t"<<times->getEntry(j).getAttendee(k);
+						cout<<"\n\t\t"<<times->getEntry(j).getAttendee(k);
 					}
 				}
 				cout<<"\n";
@@ -271,12 +272,12 @@ void Executive::availMode()
 	cout<<"Enter your name: ";
 	cin.ignore();
 	getline(cin, user);
-	cout<<"\n";
 	try
 	{
 		int choice = -2;
 		while(choice != 0)
 		{
+			cout<<"========================================================================\n";
 			if(size == 0)
 				cout<<"No events currently.\n";
 			for(int i = 1; i <= size; i++)
@@ -284,7 +285,8 @@ void Executive::availMode()
 				Event temp = events->getEntry(i);
 				cout<<"Event "<<(i)<<": "<<temp.getEventName()<<", "<<temp.getEventDate()<<endl;
 			}
-			cout<<"\nEnter an event number to indicate availability or enter 0 to exit: ";
+			cout<<"========================================================================\n";
+			cout<<"Enter an event number to indicate availability or enter 0 to exit: ";
 			cin>>choice;
 			while(cin.fail() || choice < 0 || choice > size)
 			{
