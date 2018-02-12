@@ -31,6 +31,12 @@ public:
 
   /*
     @pre none
+    @post Allows for the creation of an event. Also allows the user to check the attendees of the events.
+    @return none*/
+  void adminMode();
+
+  /*
+    @pre none
     @post Allows the user to see a list of events that have been created. If they select an event they can add their availability for each time slot.
     @return none*/
   void availMode();

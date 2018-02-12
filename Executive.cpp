@@ -86,7 +86,195 @@ Executive::Executive()
 
 Executive::~Executive()
 {
+	delete events;
+}
 
+void Executive::adminMode()
+{
+	int size = events->getLength();
+	string user;
+	cout<<"Enter your name: ";
+	cin>>user;
+	cout<<"\n";
+	try
+	{
+		int choice;
+		while(choice != 0)
+		{
+			for(int i = 1; i <= size; i++) //lists out all of the events
+			{
+				Event temp = events->getEntry(i);
+				cout<<"Event "<<(i)<<": "<<temp.getEventName()<<", "<<temp.getEventDate()<<endl;
+			}
+			cout<<"\nEnter an event number to check its status, -1 to add an event, or enter 0 to exit: ";
+			cin>>choice;
+			while(cin.fail() || choice < -1 || choice > size)
+			{
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout<<"Enter a valid option: ";
+				cin>>choice;
+			}
+			if(choice > 0) //user picked an event, prints out the times and attendees for the event
+			{
+				cout<<"\n"<<events->getEntry(choice).getEventName()<<"\n"<<events->getEntry(choice).getEventDate()<<"\n";
+				LinkedList<Time>* times = events->getEntry(choice).getEventTimes();
+				for(int j = 1; j <= times->getLength(); j++)
+				{
+					attSize = times->getEntry(j).getAttendeesSize();
+					cout<<"\n"<<times->getEntry(j).getTime();
+					for(int k = 0; k < attSize; k++)
+					{
+						cout<<"\n\t"<<times->getEntry(j).getAttendee(k);
+					}
+				}
+				cout<<"\n";
+			}
+			else if(choice == -1) //user chose to make a new event
+			{
+				string eName;
+				int eDay;
+				int eMonth;
+				int eYear;
+				int eHour;
+				int eMinute;
+				int eTimeType;
+				string eDayTime;
+				char done;
+				cout<<"Enter an event name: ";
+				cin>>eName;
+				cout<<"Enter the event month: ";
+				cin>>eMonth;
+				while(cin.fail())
+				{
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout<<"Enter a valid option: ";
+					cin>>eMonth;
+				}
+				cout<<"Enter the event day: ";
+				cin>>eDay;
+				while(cin.fail())
+				{
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout<<"Enter a valid option: ";
+					cin>>eDay;
+				}
+				cout<<"Enter the event year: ";
+				cin>>eYear;
+				while(cin.fail())
+				{
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout<<"Enter a valid option: ";
+					cin>>eYear;
+				}
+				cout<<"Would you like to keep track of the time of your event using the 12 or 24 hour clock (12/24): ";
+				cin>>eTimeType;
+				while(cin.fail())
+				{
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout<<"Enter a valid option: ";
+					cin>>eTimeType;
+				}
+				cout<<"Enter the hour of the day for your event: ";
+				cin>>eHour;
+				while(cin.fail())
+				{
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout<<"Enter a valid option: ";
+					cin>>eHour;
+				}
+				cout<<"Enter the minute of the day for your event (0, 20, 40): ";
+				cin>>eMinute;
+				while(cin.fail())
+				{
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout<<"Enter a valid option: ";
+					cin>>eMinute;
+				}
+				cout<<"On the 12 hour clock, is this time am or pm (am/pm): ";
+				cin>>eDayTime;
+				while(cin.fail())
+				{
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout<<"Enter a valid option: ";
+					cin>>eDayTime;
+				}
+				Event temp(eName, eDay, eMonth, eYear, user, eHour, eMinute, eTimeType, eDayTime);
+				events->insert(1, temp);
+				cout<<"Would you like to add another time for your event? (y/n): ";
+				cin>>done;
+				while(cin.fail() || (att != y && att != n))
+				{
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout<<"Enter a valid option: ";
+					cin>>done;
+				}
+				while(done != 'y')
+				{
+					cout<<"Would you like to keep track of the time of your event using the 12 or 24 hour clock (12/24): ";
+					cin>>eTimeType;
+					while(cin.fail())
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout<<"Enter a valid option: ";
+						cin>>eTimeType;
+					}
+					cout<<"Enter the hour of the day for your event: ";
+					cin>>eHour;
+					while(cin.fail())
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout<<"Enter a valid option: ";
+						cin>>eHour;
+					}
+					cout<<"Enter the minute of the day for your event (0, 20, 40): ";
+					cin>>eMinute;
+					while(cin.fail())
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout<<"Enter a valid option: ";
+						cin>>eMinute;
+					}
+					cout<<"On the 12 hour clock, is this time am or pm (am/pm): ";
+					cin>>eDayTime;
+					while(cin.fail())
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout<<"Enter a valid option: ";
+						cin>>eDayTime;
+					}
+					Event temp(eName, eDay, eMonth, eYear, user, eHour, eMinute, eTimeType, eDayTime);
+					events->insert(1, temp);
+					cout<<"Would you like to add another time for your event? (y/n): ";
+					cin>>done;
+					while(cin.fail() || (att != y && att != n))
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout<<"Enter a valid option: ";
+						cin>>done;
+					}
+				}
+				cout<<"\n";
+			}
+		}
+	}
+	catch(PrecondViolatedExcep pve)
+	{
+		cerr<<pve.what()<<"\n";
+	}
 }
 
 void Executive::availMode()
